@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<palette>
+ <active>
+  <colorrole role="Window">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>61</red>
+     <green>60</green>
+     <blue>57</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="Link">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>77</red>
+     <green>77</green>
+     <blue>75</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="Accent">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>54</red>
+     <green>54</green>
+     <blue>59</blue>
+    </color>
+   </brush>
+  </colorrole>
+ </active>
+ <inactive>
+  <colorrole role="Window">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>61</red>
+     <green>60</green>
+     <blue>57</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="Link">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>77</red>
+     <green>77</green>
+     <blue>75</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="Accent">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>54</red>
+     <green>54</green>
+     <blue>59</blue>
+    </color>
+   </brush>
+  </colorrole>
+ </inactive>
+ <disabled>
+  <colorrole role="Base">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>61</red>
+     <green>60</green>
+     <blue>57</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="Window">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>61</red>
+     <green>60</green>
+     <blue>57</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="Link">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>77</red>
+     <green>77</green>
+     <blue>75</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="Accent">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>54</red>
+     <green>54</green>
+     <blue>59</blue>
+    </color>
+   </brush>
+  </colorrole>
+ </disabled>
+</palette>

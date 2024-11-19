@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<palette>
+ <active>
+  <colorrole role="Window">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>176</red>
+     <green>125</green>
+     <blue>180</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="Highlight">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>0</red>
+     <green>170</green>
+     <blue>0</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="AlternateBase">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>65</red>
+     <green>65</green>
+     <blue>65</blue>
+    </color>
+   </brush>
+  </colorrole>
+ </active>
+ <inactive>
+  <colorrole role="Window">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>176</red>
+     <green>125</green>
+     <blue>180</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="Highlight">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>0</red>
+     <green>170</green>
+     <blue>0</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="AlternateBase">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>65</red>
+     <green>65</green>
+     <blue>65</blue>
+    </color>
+   </brush>
+  </colorrole>
+ </inactive>
+ <disabled>
+  <colorrole role="Base">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>176</red>
+     <green>125</green>
+     <blue>180</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="Window">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>176</red>
+     <green>125</green>
+     <blue>180</blue>
+    </color>
+   </brush>
+  </colorrole>
+  <colorrole role="AlternateBase">
+   <brush brushstyle="SolidPattern">
+    <color alpha="255">
+     <red>65</red>
+     <green>65</green>
+     <blue>65</blue>
+    </color>
+   </brush>
+  </colorrole>
+ </disabled>
+</palette>
