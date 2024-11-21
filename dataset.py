@@ -1,9 +1,32 @@
 
+from dataclasses import dataclass
+from enum import Enum
+
+
+class Gender(Enum):
+    MALE = 0
+    FEMALE = 1
+
+class Ethnicity(Enum):
+    CAUCASIAN = 0
+    AFRICAN_AMERICAN = 1
+    ASIAN = 2
+    OTHER = 3
+
+class EducationLevel(Enum):
+    NONE = 0
+    HIGH_SCHOOL = 1
+    BACHELORS = 2
+    HIGHER = 3
+
+class Decision(Enum):
+    NO = 0
+    YES = 1
+
 
 class Dataset:
 
     def __init__(self):
-        self._patient_id = None
         self._age = None
         self._gender = None
         self._ethnicity = None
@@ -39,78 +62,96 @@ class Dataset:
         self._diagnosis = None
         self._doctor_in_charge = None
 
-    @property
-    def patient_id(self):
-        return self._patient_id
-
-    @patient_id.setter
-    def patient_id(self, value):
-        self._patient_id = value
 
     @property
     def age(self):
         return self._age
 
     @age.setter
-    def age(self, value):
-        self._age = value
+    def age(self, value: float):
+        if 60.0 >= value <= 90.0:
+            self._age = value
+        else:
+            raise ValueError("Age must be float and between 60.0 and 90.0")
 
     @property
     def gender(self):
         return self._gender
 
     @gender.setter
-    def gender(self, value):
-        self._gender = value
+    def gender(self, value: int):
+        if value in Gender._value2member_map_:            
+            self._gender = value
+        else:
+            raise ValueError("Gender must be 0 (Male) or 1 (Female)")
 
     @property
     def ethnicity(self):
         return self._ethnicity
 
     @ethnicity.setter
-    def ethnicity(self, value):
-        self._ethnicity = value
+    def ethnicity(self, value: int):
+        if value in Ethnicity._value2member_map_:
+            self._ethnicity = value
+        else:
+            raise ValueError("Ethnicity must be one of the following: 0 (Caucasian), 1 (African American), 2 (Asian), 3 (Other)")
 
     @property
     def education_level(self):
         return self._education_level
 
     @education_level.setter
-    def education_level(self, value):
-        self._education_level = value
+    def education_level(self, value: int):
+        if value in EducationLevel._value2member_map_:
+            self._education_level = value
+        else:
+            raise ValueError("Education level must be one of the following: 0 (None), 1 (High School), 2 (Bachelors), 3 (Higher)")
+            
 
     @property
     def bmi(self):
         return self._bmi
 
     @bmi.setter
-    def bmi(self, value):
-        self._bmi = value
+    def bmi(self, value: float):
+        if 15 >= value <= 40:
+            self._bmi = value
+        else:
+            raise ValueError("BMI must be a float and between 15 and 40")
 
     @property
     def smoking(self):
         return self._smoking
 
     @smoking.setter
-    def smoking(self, value):
-        self._smoking = value
+    def smoking(self, value: int):
+        if value in Decision._value2member_map_:
+            self._smoking = value
+        else:
+            raise ValueError("Smoking must be 0 (No) or 1 (Yes)")
 
     @property
     def alcohol_consumption(self):
         return self._alcohol_consumption
 
     @alcohol_consumption.setter
-    def alcohol_consumption(self, value):
-        self._alcohol_consumption = value
+    def alcohol_consumption(self, value: float):
+        if 0 >= value <= 20:
+            self._alcohol_consumption = value
+        else:
+            raise ValueError("Alcohol consumption must be a float and between 0 and 20")
 
     @property
     def physical_activity(self):
         return self._physical_activity
 
     @physical_activity.setter
-    def physical_activity(self, value):
-        self._physical_activity = value
-
+    def physical_activity(self, value: float):
+        if 0 >= value <= 9.99:
+            self._physical_activity = value
+        else:
+            raise ValueError("Physical activity must be a float and between 0 and 9.99")
+            
     @property
     def diet_quality(self):
         return self._diet_quality
