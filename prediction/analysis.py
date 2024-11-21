@@ -1,28 +1,54 @@
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
 
-if __name__ == '__main__':
+def main():
     df = pd.read_csv("../data/alzheimers_disease_data.csv")
+    patient_features = pd.read_csv("patient_data.csv")
+    predictions = pd.read_csv("predictions.csv")
 
-    sns.swarmplot(data=df, y='FunctionalAssessment', x='Diagnosis')
-    plt.title(f'Distribution of Functional Assessment Scores by Diagnosis Categories')
-    plt.show()
+    patient_diagnosis = predictions.loc[0, "Diagnosis_Prediction"]
+    patient_data = patient_features.iloc[0].copy()
+    patient_data['Diagnosis'] = patient_diagnosis
 
-    sns.swarmplot(data=df, y='ADL', x='Diagnosis')
-    plt.title(f'Activities of Daily Living score by Diagnosis Categories')
-    plt.show()
+    # most important features to use
+    feature_list = ['FunctionalAssessment', 'ADL', 'MMSE']
 
-    sns.swarmplot(data=df, y='MMSE', x='Diagnosis')
-    plt.title(f'Mini-Mental State Examination score by Diagnosis Categories')
-    plt.show()
+    for feature in feature_list:
+        plt.figure(figsize=(10, 6))
 
-    sns.countplot(data=df, x='Diagnosis', hue='BehavioralProblems')
-    plt.title(f'Distribution of Behavioral Problems by Diagnosis Categories')
-    plt.show()
+        sns.swarmplot(data=df, y=feature, x='Diagnosis', color='skyblue', alpha=0.7)
 
-    sns.countplot(data=df, x='Diagnosis', hue='MemoryComplaints')
-    plt.title(f'Distribution of Memory Complaints by Diagnosis Categories')
-    plt.show()
+        sns.scatterplot(
+            x=[patient_diagnosis],
+            y=[patient_data[feature]],
+            color='red',
+            edgecolor='black',  # Add edge color
+            s=200,  # Increase size
+            marker='D',  # Diamond marker
+            label='Current Patient',
+            zorder=10  # Ensure it's on top
+        )
+
+        plt.annotate(
+            'Current Patient',
+            xy=(patient_diagnosis, patient_data[feature]),
+            xytext=(5, 5),
+            textcoords='offset points',
+            fontsize=12,
+            color='red',
+            weight='bold'
+        )
+
+        plt.title(f'{feature} by Diagnosis Categories with Current Patient', fontsize=16)
+        plt.xlabel('Diagnosis', fontsize=14)
+        plt.ylabel(feature, fontsize=14)
+        plt.legend()
+        plt.tight_layout()
+        plt.savefig(f'plot_{feature}.png')
+        plt.close()
+
+
+if __name__ == '__main__':
+    main()
