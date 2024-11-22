@@ -84,8 +84,6 @@ def test_get_dataframe():
     dataset.personality_changes = Decision.NO.value
     dataset.difficulty_completing_tasks = Decision.NO.value
     dataset.forgetfulness = Decision.NO.value
-    dataset.diagnosis = "No diagnosis"
-    dataset.doctor_in_charge = "Dr. Smith"
 
     df = dataset.get_dataframe()
     assert isinstance(df, pd.DataFrame)
@@ -121,5 +119,3 @@ def test_get_dataframe():
     assert df['personality_changes'][0] == Decision.NO.value
     assert df['difficulty_completing_tasks'][0] == Decision.NO.value
     assert df['forgetfulness'][0] == Decision.NO.value
-    assert df['diagnosis'][0] == "No diagnosis"
-    assert df['doctor_in_charge'][0] == "Dr. Smith"

@@ -384,9 +384,7 @@ class Dataset:
             'disorientation': [self._disorientation],
             'personality_changes': [self._personality_changes],
             'difficulty_completing_tasks': [self._difficulty_completing_tasks],
-            'forgetfulness': [self._forgetfulness],
-            'diagnosis': [self._diagnosis],
-            'doctor_in_charge': [self._doctor_in_charge]
+            'forgetfulness': [self._forgetfulness]
         }
 
         return pd.DataFrame(data)
