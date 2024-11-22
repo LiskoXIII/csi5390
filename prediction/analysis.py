@@ -1,12 +1,13 @@
 import matplotlib.pyplot as plt
+import pandas
 import seaborn as sns
 import pandas as pd
 
 
-def analyze():
+def analyze(patient_df, prediction_df):
     df = pd.read_csv("../data/alzheimers_disease_data.csv")
-    patient_features = pd.read_csv("patient_data.csv")
-    predictions = pd.read_csv("predictions.csv")
+    patient_features = patient_df
+    predictions = prediction_df
 
     patient_diagnosis = predictions.loc[0, "Diagnosis_Prediction"]
     patient_data = patient_features.iloc[0].copy()

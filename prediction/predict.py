@@ -48,5 +48,6 @@ def make_prediction(dataframe):
 
     diagnosis = pd.DataFrame()
     diagnosis['Diagnosis_Prediction'] = predictions
-    diagnosis.to_csv("predictions.csv", index=False)
+
     print("Predictions saved to 'predictions.csv'")
+    return diagnosis
