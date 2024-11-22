@@ -1,0 +1,50 @@
+Data columns (total 33 columns):
+ #   Column                				Dtype  
+---  ------                 				--------------  -----  
+Patient
+
+ 0   Age 					float64 (60-90)
+ 1   Gender					int64  (0 or 1)
+ 2   Ethnicity					int64  (0, 1, 2, 3)
+ 3   EducationLevel 				int64  (0, 1, 2 ,3)
+ 4   BMI					float64 (15-30)
+ 5   Smoking 					int64  (0 or 1)
+ 6   AlcoholConsumption			float64 (0-20)
+ 7   PhysicalActivity				float64 (0-9.99)
+ 8   DietQuality					float64 (0.01-10)
+ 9   SleepQuality				float64 (4-10)
+
+Genetic
+
+ 10  FamilyHistoryAlzheimers			int64  (0 or 1)
+ 11  CardiovascularDisease			int64  (0 or 1)
+ 12  Diabetes               			int64  (0 or 1)
+ 13  Depression             	 		int64  (0 or 1)
+ 14  HeadInjury				int64  (0 or 1)
+ 15  Hypertension				int64  (0 or 1)
+
+Clinical
+
+ 16  SystolicBP				float64 (90-179 DISCRETE)
+ 17  DiastolicBP				float64 (60-119 DISCRETE)
+ 18  CholesterolTotal				float64 (150-300)
+ 19  CholesterolLDL				float64 (50.2-200)
+ 20  CholesterolHDL				float64 (20-100)
+ 21  CholesterolTriglycerides			float64 (50.4-400)
+
+Cognitive
+
+ 22  MMSE					float64 (0.01-30)
+ 23  FunctionalAssessment			float64 (0-10)
+ 24  MemoryComplaints			int64  (0 or 1)
+ 25  BehavioralProblems			int64  (0 or 1)
+ 26  ADL					float64 (0-10)
+ 27  Confusion              			int64  (0 or 1)
+ 28  Disorientation         			int64  (0 or 1)
+ 29  PersonalityChanges     	 		int64  (0 or 1)
+ 30  DifficultyCompletingTasks		int64  (0 or 1)
+ 31  Forgetfulness          			int64  (0 or 1)
+
+Result
+
+ 32  Diagnosis              			int64 (0 or 1)
