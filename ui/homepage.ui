@@ -492,7 +492,7 @@
       <disabled>
        <colorrole role="Button">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
+         <color alpha="107">
           <red>255</red>
           <green>255</green>
           <blue>255</blue>
@@ -857,7 +857,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="genetic_button_2">
+   <widget class="QPushButton" name="results_button">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -972,7 +972,7 @@
    <zorder>genetic_status</zorder>
    <zorder>patient_status</zorder>
    <zorder>results_box</zorder>
-   <zorder>genetic_button_2</zorder>
+   <zorder>results_button</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
