@@ -32,12 +32,12 @@ def load_model():
     model.load_model("catboost_model.cbm")
     return model
 
-if __name__ == "__main__":
+def make_prediction(dataframe):
     min_max_scaler, standard_scaler = load_preprocessing_objects()
 
     model = load_model()
 
-    patient_data = pd.read_csv("patient_data.csv")
+    patient_data = dataframe
 
     # drop columns not needed in prediction
     patient_data.drop(['PatientID', 'DoctorInCharge'], axis=1, inplace=True, errors='ignore')

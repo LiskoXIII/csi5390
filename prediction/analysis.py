@@ -3,7 +3,7 @@ import seaborn as sns
 import pandas as pd
 
 
-def main():
+def analyze():
     df = pd.read_csv("../data/alzheimers_disease_data.csv")
     patient_features = pd.read_csv("patient_data.csv")
     predictions = pd.read_csv("predictions.csv")
@@ -48,7 +48,3 @@ def main():
         plt.tight_layout()
         plt.savefig(f'plot_{feature}.png')
         plt.close()
-
-
-if __name__ == '__main__':
-    main()
