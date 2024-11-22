@@ -1,5 +1,4 @@
 
-from dataclasses import dataclass
 from enum import Enum
 
 
@@ -157,7 +156,7 @@ class Dataset:
         return self._diet_quality
 
     @diet_quality.setter
-    def diet_quality(self, value):
+    def diet_quality(self, value: float):
         self._diet_quality = value
 
     @property
@@ -165,15 +164,17 @@ class Dataset:
         return self._sleep_quality
 
     @sleep_quality.setter
-    def sleep_quality(self, value):
+    def sleep_quality(self, value: float):
         self._sleep_quality = value
 
+
+    # Genetic
     @property
     def family_history_alzheimers(self):
         return self._family_history_alzheimers
 
     @family_history_alzheimers.setter
-    def family_history_alzheimers(self, value):
+    def family_history_alzheimers(self, value: int):
         self._family_history_alzheimers = value
 
     @property
@@ -181,7 +182,7 @@ class Dataset:
         return self._cardiovascular_disease
 
     @cardiovascular_disease.setter
-    def cardiovascular_disease(self, value):
+    def cardiovascular_disease(self, value: int):
         self._cardiovascular_disease = value
 
     @property
@@ -189,7 +190,7 @@ class Dataset:
         return self._diabetes
 
     @diabetes.setter
-    def diabetes(self, value):
+    def diabetes(self, value: int):
         self._diabetes = value
 
     @property
@@ -197,7 +198,7 @@ class Dataset:
         return self._depression
 
     @depression.setter
-    def depression(self, value):
+    def depression(self, value: int):
         self._depression = value
 
     @property
@@ -205,7 +206,7 @@ class Dataset:
         return self._head_injury
 
     @head_injury.setter
-    def head_injury(self, value):
+    def head_injury(self, value: int):
         self._head_injury = value
 
     @property
@@ -213,15 +214,16 @@ class Dataset:
         return self._hypertension
 
     @hypertension.setter
-    def hypertension(self, value):
+    def hypertension(self, value: int):
         self._hypertension = value
 
+    # Clinical
     @property
     def systolic_bp(self):
         return self._systolic_bp
 
     @systolic_bp.setter
-    def systolic_bp(self, value):
+    def systolic_bp(self, value: float):
         self._systolic_bp = value
 
     @property
@@ -229,7 +231,7 @@ class Dataset:
         return self._diastolic_bp
 
     @diastolic_bp.setter
-    def diastolic_bp(self, value):
+    def diastolic_bp(self, value: float):
         self._diastolic_bp = value
 
     @property
@@ -237,7 +239,7 @@ class Dataset:
         return self._cholesterol_total
 
     @cholesterol_total.setter
-    def cholesterol_total(self, value):
+    def cholesterol_total(self, value: float):
         self._cholesterol_total = value
 
     @property
@@ -245,7 +247,7 @@ class Dataset:
         return self._cholesterol_ldl
 
     @cholesterol_ldl.setter
-    def cholesterol_ldl(self, value):
+    def cholesterol_ldl(self, value: float):
         self._cholesterol_ldl = value
 
     @property
@@ -253,7 +255,7 @@ class Dataset:
         return self._cholesterol_hdl
 
     @cholesterol_hdl.setter
-    def cholesterol_hdl(self, value):
+    def cholesterol_hdl(self, value: float):
         self._cholesterol_hdl = value
 
     @property
@@ -261,15 +263,16 @@ class Dataset:
         return self._cholesterol_triglycerides
 
     @cholesterol_triglycerides.setter
-    def cholesterol_triglycerides(self, value):
+    def cholesterol_triglycerides(self, value: float):
         self._cholesterol_triglycerides = value
 
+    # Cognitive
     @property
     def mmse(self):
         return self._mmse
 
     @mmse.setter
-    def mmse(self, value):
+    def mmse(self, value: float):
         self._mmse = value
 
     @property
@@ -277,7 +280,7 @@ class Dataset:
         return self._functional_assessment
 
     @functional_assessment.setter
-    def functional_assessment(self, value):
+    def functional_assessment(self, value: float):
         self._functional_assessment = value
 
     @property
@@ -285,7 +288,7 @@ class Dataset:
         return self._memory_complaints
 
     @memory_complaints.setter
-    def memory_complaints(self, value):
+    def memory_complaints(self, value: int):
         self._memory_complaints = value
 
     @property
@@ -293,7 +296,7 @@ class Dataset:
         return self._behavioral_problems
 
     @behavioral_problems.setter
-    def behavioral_problems(self, value):
+    def behavioral_problems(self, value: int):
         self._behavioral_problems = value
 
     @property
@@ -301,7 +304,7 @@ class Dataset:
         return self._adl
 
     @adl.setter
-    def adl(self, value):
+    def adl(self, value: float):
         self._adl = value
 
     @property
@@ -309,7 +312,7 @@ class Dataset:
         return self._confusion
 
     @confusion.setter
-    def confusion(self, value):
+    def confusion(self, value: int):
         self._confusion = value
 
     @property
@@ -317,7 +320,7 @@ class Dataset:
         return self._disorientation
 
     @disorientation.setter
-    def disorientation(self, value):
+    def disorientation(self, value: int):
         self._disorientation = value
 
     @property
@@ -325,7 +328,7 @@ class Dataset:
         return self._personality_changes
 
     @personality_changes.setter
-    def personality_changes(self, value):
+    def personality_changes(self, value: int):
         self._personality_changes = value
 
     @property
@@ -333,7 +336,7 @@ class Dataset:
         return self._difficulty_completing_tasks
 
     @difficulty_completing_tasks.setter
-    def difficulty_completing_tasks(self, value):
+    def difficulty_completing_tasks(self, value: int):
         self._difficulty_completing_tasks = value
 
     @property
@@ -341,21 +344,5 @@ class Dataset:
         return self._forgetfulness
 
     @forgetfulness.setter
-    def forgetfulness(self, value):
+    def forgetfulness(self, value: int):
         self._forgetfulness = value
-
-    @property
-    def diagnosis(self):
-        return self._diagnosis
-
-    @diagnosis.setter
-    def diagnosis(self, value):
-        self._diagnosis = value
-
-    @property
-    def doctor_in_charge(self):
-        return self._doctor_in_charge
-
-    @doctor_in_charge.setter
-    def doctor_in_charge(self, value):
-        self._doctor_in_charge = value
