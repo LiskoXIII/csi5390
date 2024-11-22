@@ -157,7 +157,8 @@ class Dataset:
 
     @diet_quality.setter
     def diet_quality(self, value: float):
-        self._diet_quality = value
+        if 0.01 >= value <= 10.0:
+            self._diet_quality = value
 
     @property
     def sleep_quality(self):
