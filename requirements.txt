@@ -2,3 +2,4 @@ pip
 PySide6
 pyside6-utils
 matplotlib
+pytest
