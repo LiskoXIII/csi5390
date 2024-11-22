@@ -1,6 +1,6 @@
 
 from enum import Enum
-
+import pandas as pd
 
 class Gender(Enum):
     MALE = 0
@@ -159,6 +159,8 @@ class Dataset:
     def diet_quality(self, value: float):
         if 0.01 >= value <= 10.0:
             self._diet_quality = value
+        else:
+            raise ValueError("Diet quality must be float and between 0.01 and 10.0")
 
     @property
     def sleep_quality(self):
@@ -347,3 +349,44 @@ class Dataset:
     @forgetfulness.setter
     def forgetfulness(self, value: int):
         self._forgetfulness = value
+
+    
+    def get_dataframe(self):
+        data = {
+            'age': [self._age],
+            'gender': [self._gender],
+            'ethnicity': [self._ethnicity],
+            'education_level': [self._education_level],
+            'bmi': [self._bmi],
+            'smoking': [self._smoking],
+            'alcohol_consumption': [self._alcohol_consumption],
+            'physical_activity': [self._physical_activity],
+            'diet_quality': [self._diet_quality],
+            'sleep_quality': [self._sleep_quality],
+            'family_history_alzheimers': [self._family_history_alzheimers],
+            'cardiovascular_disease': [self._cardiovascular_disease],
+            'diabetes': [self._diabetes],
+            'depression': [self._depression],
+            'head_injury': [self._head_injury],
+            'hypertension': [self._hypertension],
+            'systolic_bp': [self._systolic_bp],
+            'diastolic_bp': [self._diastolic_bp],
+            'cholesterol_total': [self._cholesterol_total],
+            'cholesterol_ldl': [self._cholesterol_ldl],
+            'cholesterol_hdl': [self._cholesterol_hdl],
+            'cholesterol_triglycerides': [self._cholesterol_triglycerides],
+            'mmse': [self._mmse],
+            'functional_assessment': [self._functional_assessment],
+            'memory_complaints': [self._memory_complaints],
+            'behavioral_problems': [self._behavioral_problems],
+            'adl': [self._adl],
+            'confusion': [self._confusion],
+            'disorientation': [self._disorientation],
+            'personality_changes': [self._personality_changes],
+            'difficulty_completing_tasks': [self._difficulty_completing_tasks],
+            'forgetfulness': [self._forgetfulness],
+            'diagnosis': [self._diagnosis],
+            'doctor_in_charge': [self._doctor_in_charge]
+        }
+
+        return pd.DataFrame(data)
