@@ -6,5 +6,5 @@ class Patient:
 
     def __init__(self, id: Any = None):
         self.id: Any = id
-        self.data = Dataset()
+        self.data: Dataset = Dataset()
         self.result: Any = None

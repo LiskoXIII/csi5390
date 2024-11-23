@@ -1,6 +1,7 @@
 import sys
 
 from patient import Patient
+from dataset import EducationLevel, Ethnicity
 from ui.ui_adps import Ui_MainWindow
 
 from PySide6.QtWidgets import QApplication, QMainWindow
@@ -18,15 +19,21 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.widgetHomepage.setVisible(False)
         self.widgetPatient.setVisible(False)
 
-        self.patient = None
+        self.patient: Patient = None
+        self.cognitive_complete: bool = False
+        self.clinical_complete: bool = False
+        self.patient_complete: bool = False
 
 
     def connect_ui(self):
         self.loginSubmit.clicked.connect(self.login_submit)
-        self.cognitive_button.clicked.connect(self.cognitive)
-        self.genetic_button.clicked.connect(self.clinical)
-        self.patient_button.clicked.connect(self.patient)
-        self.results_button.clicked.connect(self.result)
+        self.cognitive_button.clicked.connect(self.goto_cognitive)
+        self.submitButtonCognitive.clicked.connect(self.cognitiveSubmit)
+        self.genetic_button.clicked.connect(self.goto_clinical)
+        self.submitButtonClinical.clicked.connect(self.clinicalSubmit)
+        self.patient_button.clicked.connect(self.goto_patient)
+        self.submitButtonPatient.clicked.connect(self.patientSubmit)
+        self.results_button.clicked.connect(self.goto_result)
 
     def login_submit(self):
         self.patient = Patient(self.loginPatientID.text())
@@ -36,25 +43,106 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.widgetLogin.setVisible(False)
         self.widgetLogin.setEnabled(False)
 
-    def cognitive(self):
+    def goto_cognitive(self):
         self.widgetCognitive.setEnabled(True)
         self.widgetCognitive.setVisible(True)
         self.widgetHomepage.setVisible(False)
         self.widgetHomepage.setEnabled(False)
 
-    def clinical(self):
+    def cognitiveSubmit(self):
+        try:
+            self.patient.data.mmse = self.mmseCognitive.value()
+            self.patient.data.functional_assessment = self.functionalAssesment.value()
+            self.patient.data.memory_complaints = int(self.memoryComplaints.isChecked())
+            self.patient.data.behavioral_problems = int(self.behavioralProblems.isChecked())
+            self.patient.data.adl = self.adl.value()
+            self.patient.data.confusion = int(self.confusion.isChecked())
+            self.patient.data.disorientation = int(self.disorientation.isChecked())
+            self.patient.data.personality_changes = int(self.personalityChanges.isChecked())
+            self.patient.data.difficulty_completing_tasks = int(self.diffCompTask.isChecked())
+            self.patient.data.forgetfulness = int(self.forgetfulness.isChecked())
+        except ValueError as e:
+            self.statusbar.showMessage(f"ERROR: {e}")
+        self.statusbar.showMessage("Cognitive data submitted!")
+        self.widgetHomepage.setEnabled(True)
+        self.widgetHomepage.setVisible(True)
+        self.widgetCognitive.setVisible(False)
+        self.widgetCognitive.setEnabled(False)
+        self.cognitive_status.setText("Complete")
+        self.cognitive_status.setStyleSheet("color: green;")
+        self.cognitive_complete = True
+        self.data_complete()
+
+    def goto_clinical(self):
         self.widgetClinical.setEnabled(True)
         self.widgetClinical.setVisible(True)
         self.widgetHomepage.setVisible(False)
         self.widgetHomepage.setEnabled(False)
 
-    def patient(self): 
+    def clinicalSubmit(self):
+        try:
+            self.patient.data.family_history_alzheimers = int(self.famAlzClinical.isChecked())
+            self.patient.data.cardiovascular_disease = int(self.cardiovascularDiseaseClinical.isChecked())
+            self.patient.data.diabetes = int(self.diabetesClinical.isChecked())
+            self.patient.data.depression = int(self.depressionClinical.isChecked())
+            self.patient.data.head_injury = int(self.headInjuryClinical.isChecked())
+            self.patient.data.hypertension = int(self.hypertensionClinical.isChecked())
+            self.patient.data.systolic_bp = self.sysBPClinical.value()
+            self.patient.data.diastolic_bp = self.dasBPClinical.value()
+            self.patient.data.cholesterol_total = self.cholTotalClinical.value()
+            self.patient.data.cholesterol_ldl = self.cholLDLClinical.value()
+            self.patient.data.cholesterol_hdl = self.cholHDLClinical.value()
+            self.patient.data.cholesterol_triglycerides = self.cholTriClinical.value()
+        except ValueError as e:
+            self.statusbar.showMessage(f"ERROR: {e}")
+        self.statusbar.showMessage("Clinical data submitted!")
+        self.widgetHomepage.setEnabled(True)
+        self.widgetHomepage.setVisible(True)
+        self.widgetClinical.setVisible(False)
+        self.widgetClinical.setEnabled(False)
+        self.genetic_status.setText("Complete")
+        self.genetic_status.setStyleSheet("color: green;")
+        self.clinical_complete = True
+        self.data_complete()
+
+
+    def goto_patient(self): 
         self.widgetPatient.setEnabled(True)
         self.widgetPatient.setVisible(True)
         self.widgetHomepage.setVisible(False)
         self.widgetHomepage.setEnabled(False)
 
-    def result(self):
+    def patientSubmit(self):
+        try:
+            self.patient.data.age = self.agePatient.value()
+            self.patient.data.gender = int(self.malePatient.isChecked())
+            self.patient.data.ethnicity =  Ethnicity[self.ethnicityPatient.currentText().upper().replace(" ", "_")]
+            self.patient.data.education_level = EducationLevel[self.educationPatient.currentText().upper().replace(" ", "_")]
+            self.patient.data.bmi = self.bmiPatient.value()
+            self.patient.data.smoking = int(self.smokingPatient.isChecked())
+            self.patient.data.alcohol_consumption = self.alcoholPatient.value()
+            self.patient.data.physical_activity = self.physicalPatient.value()
+            self.patient.data.diet_quality = self.dietPatient.value()
+            self.patient.data.sleep_quality = self.sleepPatient.value()
+        except ValueError as e:
+            self.statusbar.showMessage(f"ERROR: {e}")
+        self.statusbar.showMessage("Patient data submitted!")
+        self.widgetHomepage.setEnabled(True)
+        self.widgetHomepage.setVisible(True)
+        self.widgetPatient.setVisible(False)
+        self.widgetPatient.setEnabled(False)
+        self.patient_status.setText("Complete")
+        self.patient_status.setStyleSheet("color: green;")
+        self.patient_complete = True
+        self.data_complete()
+
+    def data_complete(self):
+        if self.cognitive_complete and self.clinical_complete and self.patient_complete:
+            self.statusbar.showMessage("All data submitted!")
+            self.results_button.setEnabled(True)
+            self.results_button.setStyleSheet("color: green;")
+
+    def goto_result(self):
         self.widgetResult.setEnabled(True)
         self.widgetResult.setVisible(True)
         self.widgetHomepage.setVisible(False)
