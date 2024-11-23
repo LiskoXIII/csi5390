@@ -171,6 +171,7 @@ def main():
     app = QApplication(sys.argv)
 
     window = ADPS()
+    window.resize(1200, 800)
     window.show()
 
     app.exec()

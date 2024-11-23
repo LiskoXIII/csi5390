@@ -21,33 +21,56 @@ from PySide6.QtWidgets import (QApplication, QButtonGroup, QCheckBox, QComboBox,
     QMenuBar, QPushButton, QRadioButton, QScrollArea,
     QSizePolicy, QSpacerItem, QSpinBox, QStatusBar,
     QVBoxLayout, QWidget)
+import ui.adps_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(1267, 1211)
+        MainWindow.resize(1283, 1417)
         icon = QIcon()
-        icon.addFile(u"ADPS_logo.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u":/icon/ADPS_logo.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setAutoFillBackground(False)
-        MainWindow.setStyleSheet(u"QMainWindow {\n"
+        MainWindow.setStyleSheet(u"#MainWindow {\n"
 "background-color: rgb(176, 125, 180);\n"
-"}\n"
-"\n"
-"@ScrollArea {\n"
-"	background-color: rgb(255, 255, 255);\n"
 "}")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setStyleSheet(u"QMainWindow {\n"
+        self.centralwidget.setStyleSheet(u"#centralWidget {\n"
 "background-color: rgb(176, 125, 180);\n"
 "}")
         self.verticalLayoutMain = QVBoxLayout(self.centralwidget)
         self.verticalLayoutMain.setSpacing(0)
         self.verticalLayoutMain.setObjectName(u"verticalLayoutMain")
         self.verticalLayoutMain.setContentsMargins(0, 0, 0, 0)
+        self.widget = QWidget(self.centralwidget)
+        self.widget.setObjectName(u"widget")
+        self.widget.setStyleSheet(u"#widget { background-color: rgb(176, 125, 180);\n"
+" }")
+        self.horizontalLayout_5 = QHBoxLayout(self.widget)
+        self.horizontalLayout_5.setSpacing(0)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.label = QLabel(self.widget)
+        self.label.setObjectName(u"label")
+        self.label.setMaximumSize(QSize(200, 100))
+        self.label.setStyleSheet(u"#label { background-color: rgb(176, 125, 180);\n"
+" }")
+        self.label.setPixmap(QPixmap(u":/icon/ADPS_logo_w.png"))
+        self.label.setScaledContents(True)
+        self.label.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
+
+        self.horizontalLayout_5.addWidget(self.label)
+
+        self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_15)
+
+
+        self.verticalLayoutMain.addWidget(self.widget)
+
         self.widgetLogin = QWidget(self.centralwidget)
         self.widgetLogin.setObjectName(u"widgetLogin")
         self.widgetLogin.setEnabled(True)
@@ -55,25 +78,9 @@ class Ui_MainWindow(object):
 " }")
         self.gridLayout = QGridLayout(self.widgetLogin)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
-
-        self.gridLayout.addItem(self.verticalSpacer_3, 4, 1, 1, 1)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer_2, 0, 1, 1, 1)
-
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout.addItem(self.horizontalSpacer_2, 2, 2, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer, 7, 1, 1, 1)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer, 2, 0, 1, 1)
+        self.gridLayout.addItem(self.horizontalSpacer_2, 7, 2, 1, 1)
 
         self.loginPatientID = QLineEdit(self.widgetLogin)
         self.loginPatientID.setObjectName(u"loginPatientID")
@@ -81,7 +88,11 @@ class Ui_MainWindow(object):
         self.loginPatientID.setMaximumSize(QSize(300, 16777215))
         self.loginPatientID.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout.addWidget(self.loginPatientID, 5, 1, 1, 1)
+        self.gridLayout.addWidget(self.loginPatientID, 10, 1, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_2, 5, 1, 1, 1)
 
         self.loginSubmit = QPushButton(self.widgetLogin)
         self.loginSubmit.setObjectName(u"loginSubmit")
@@ -90,7 +101,15 @@ class Ui_MainWindow(object):
         self.loginSubmit.setMaximumSize(QSize(300, 16777215))
         self.loginSubmit.setAutoFillBackground(False)
 
-        self.gridLayout.addWidget(self.loginSubmit, 6, 1, 1, 1)
+        self.gridLayout.addWidget(self.loginSubmit, 11, 1, 1, 1)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer, 7, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer, 13, 1, 1, 1)
 
         self.loginTitle = QLabel(self.widgetLogin)
         self.loginTitle.setObjectName(u"loginTitle")
@@ -104,7 +123,11 @@ class Ui_MainWindow(object):
         self.loginTitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.loginTitle.setWordWrap(False)
 
-        self.gridLayout.addWidget(self.loginTitle, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.loginTitle, 8, 1, 1, 1)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Maximum)
+
+        self.gridLayout.addItem(self.verticalSpacer_3, 9, 1, 1, 1)
 
 
         self.verticalLayoutMain.addWidget(self.widgetLogin)
@@ -286,7 +309,7 @@ class Ui_MainWindow(object):
         self.scrollAreaCognitive.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1235, 572))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1251, 572))
         self.gridLayout_6 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.behavioralProblems = QCheckBox(self.scrollAreaWidgetContents)
@@ -490,7 +513,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayoutMain.addWidget(self.widgetCognitive)
 
-        self.widgetClinical = QWidget(self.centralwidget)
+        self.widgetResult = QWidget(self.centralwidget)
+        self.widgetResult.setObjectName(u"widgetResult")
+        self.widgetResult.setEnabled(False)
+        self.widgetResult.setStyleSheet(u"#widgetResult {\n"
+"	background-color: rgb(176, 125, 180);\\n\n"
+"}")
+        self.verticalLayout_5 = QVBoxLayout(self.widgetResult)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.widgetClinical = QWidget(self.widgetResult)
         self.widgetClinical.setObjectName(u"widgetClinical")
         self.widgetClinical.setEnabled(False)
         self.widgetClinical.setStyleSheet(u"#widgetClinical {\n"
@@ -513,7 +544,7 @@ class Ui_MainWindow(object):
         self.scrollAreaClinical.setWidgetResizable(True)
         self.scrollAreaWidgetClinical = QWidget()
         self.scrollAreaWidgetClinical.setObjectName(u"scrollAreaWidgetClinical")
-        self.scrollAreaWidgetClinical.setGeometry(QRect(0, 0, 1235, 684))
+        self.scrollAreaWidgetClinical.setGeometry(QRect(0, 0, 1233, 684))
         self.scrollAreaWidgetClinical.setStyleSheet(u"#scrollAreaWidgetClinical {\n"
 "background-color: rgb(255, 255, 255);\n"
 "}")
@@ -750,9 +781,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.widgetsubClinical)
 
 
-        self.verticalLayoutMain.addWidget(self.widgetClinical)
+        self.verticalLayout_5.addWidget(self.widgetClinical)
 
-        self.widgetPatient = QWidget(self.centralwidget)
+        self.widgetPatient = QWidget(self.widgetResult)
         self.widgetPatient.setObjectName(u"widgetPatient")
         self.widgetPatient.setEnabled(False)
         self.widgetPatient.setStyleSheet(u"#widgetPatient {\n"
@@ -775,7 +806,7 @@ class Ui_MainWindow(object):
         self.scrollAreaPatient.setWidgetResizable(True)
         self.scrollAreaWidgetPatient = QWidget()
         self.scrollAreaWidgetPatient.setObjectName(u"scrollAreaWidgetPatient")
-        self.scrollAreaWidgetPatient.setGeometry(QRect(0, 0, 1235, 578))
+        self.scrollAreaWidgetPatient.setGeometry(QRect(0, 0, 1233, 578))
         self.scrollAreaWidgetPatient.setStyleSheet(u"#scrollAreaWidgetPatient {\n"
 "background-color: rgb(255, 255, 255);\n"
 "}")
@@ -1028,16 +1059,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.addWidget(self.widgetSubPatient)
 
 
-        self.verticalLayoutMain.addWidget(self.widgetPatient)
+        self.verticalLayout_5.addWidget(self.widgetPatient)
 
-        self.widgetResult = QWidget(self.centralwidget)
-        self.widgetResult.setObjectName(u"widgetResult")
-        self.widgetResult.setEnabled(False)
-        self.widgetResult.setStyleSheet(u"#widgetResult {\n"
-"	background-color: rgb(176, 125, 180);\\n\n"
-"}")
-        self.verticalLayout_5 = QVBoxLayout(self.widgetResult)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.label_results = QLabel(self.widgetResult)
         self.label_results.setObjectName(u"label_results")
         sizePolicy.setHeightForWidth(self.label_results.sizePolicy().hasHeightForWidth())
@@ -1062,7 +1085,7 @@ class Ui_MainWindow(object):
         self.scrollAreaResult.setWidgetResizable(True)
         self.scrollAreaWidgetContentsResult = QWidget()
         self.scrollAreaWidgetContentsResult.setObjectName(u"scrollAreaWidgetContentsResult")
-        self.scrollAreaWidgetContentsResult.setGeometry(QRect(0, 0, 1235, 78))
+        self.scrollAreaWidgetContentsResult.setGeometry(QRect(0, 0, 1251, 78))
         self.scrollAreaWidgetContentsResult.setStyleSheet(u"background-color: rgb(176, 125, 180)")
         self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContentsResult)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
@@ -1094,7 +1117,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1267, 33))
+        self.menubar.setGeometry(QRect(0, 0, 1283, 33))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -1107,6 +1130,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"ADPS", None))
+        self.label.setText("")
         self.loginPatientID.setInputMask("")
         self.loginPatientID.setText("")
         self.loginPatientID.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Patient ID", None))

@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>ADPS_logo.png</file>
+    <file>ADPS_logo_w.png</file>
+  </qresource>
+</RCC>
