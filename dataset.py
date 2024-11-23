@@ -421,17 +421,17 @@ class Dataset:
         else:
             raise ValueError("Forgetfulness must be 0 (No) or 1 (Yes)")
 
-# PatientID,Age,Gender,Ethnicity,EducationLevel,BMI,Smoking,AlcoholConsumption,PhysicalActivity,DietQuality,SleepQuality,FamilyHistoryAlzheimers,CardiovascularDisease,Diabetes,Depression,HeadInjury,Hypertension,SystolicBP,DiastolicBP,CholesterolTotal,CholesterolLDL,CholesterolHDL,CholesterolTriglycerides,MMSE,FunctionalAssessment,MemoryComplaints,BehavioralProblems,ADL,Confusion,Disorientation,PersonalityChanges,DifficultyCompletingTasks,Forgetfulness,Diagnosis,DoctorInCharge
+# Age,Gender,Ethnicity,EducationLevel,BMI,Smoking,AlcoholConsumption,PhysicalActivity,DietQuality,SleepQuality,FamilyHistoryAlzheimers,CardiovascularDisease,Diabetes,Depression,HeadInjury,Hypertension,SystolicBP,DiastolicBP,CholesterolTotal,CholesterolLDL,CholesterolHDL,CholesterolTriglycerides,MMSE,FunctionalAssessment,MemoryComplaints,BehavioralProblems,ADL,Confusion,Disorientation,PersonalityChanges,DifficultyCompletingTasks,Forgetfulness,Diagnosis,DoctorInCharge
     
     def get_dataframe(self):
         data = {
-            'age': [self._age],
-            'gender': [self._gender],
-            'ethnicity': [self._ethnicity],
-            'education_level': [self._education_level],
-            'bmi': [self._bmi],
-            'smoking': [self._smoking],
-            'alcohol_consumption': [self._alcohol_consumption],
+            'Age': [self._age],
+            'Gender': [self._gender],
+            'Ethnicity': [self._ethnicity],
+            'EducationLevel': [self._education_level],
+            'BMI': [self._bmi],
+            'Smoking': [self._smoking],
+            'AlcoholConsumption': [self._alcohol_consumption],
             'physical_activity': [self._physical_activity],
             'diet_quality': [self._diet_quality],
             'sleep_quality': [self._sleep_quality],
