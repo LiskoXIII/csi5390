@@ -15,12 +15,12 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDoubleSpinBox,
-    QFrame, QGridLayout, QGroupBox, QHBoxLayout,
-    QLabel, QLineEdit, QMainWindow, QMenuBar,
-    QPushButton, QRadioButton, QScrollArea, QSizePolicy,
-    QSpacerItem, QSpinBox, QStatusBar, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QButtonGroup, QCheckBox, QComboBox,
+    QDoubleSpinBox, QFrame, QGridLayout, QGroupBox,
+    QHBoxLayout, QLabel, QLineEdit, QMainWindow,
+    QMenuBar, QPushButton, QRadioButton, QScrollArea,
+    QSizePolicy, QSpacerItem, QSpinBox, QStatusBar,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -149,6 +149,12 @@ class Ui_MainWindow(object):
 
         self.cognitive_status = QLabel(self.frame)
         self.cognitive_status.setObjectName(u"cognitive_status")
+        font2 = QFont()
+        font2.setPointSize(12)
+        font2.setBold(True)
+        self.cognitive_status.setFont(font2)
+        self.cognitive_status.setStyleSheet(u"color: red;")
+        self.cognitive_status.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_2.addWidget(self.cognitive_status, 1, 0, 1, 1)
 
@@ -173,6 +179,9 @@ class Ui_MainWindow(object):
 
         self.genetic_status = QLabel(self.frame_2)
         self.genetic_status.setObjectName(u"genetic_status")
+        self.genetic_status.setFont(font2)
+        self.genetic_status.setStyleSheet(u"color: red;")
+        self.genetic_status.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_3.addWidget(self.genetic_status, 1, 0, 1, 1)
 
@@ -204,6 +213,9 @@ class Ui_MainWindow(object):
 
         self.patient_status = QLabel(self.frame_3)
         self.patient_status.setObjectName(u"patient_status")
+        self.patient_status.setFont(font2)
+        self.patient_status.setStyleSheet(u"color: red;")
+        self.patient_status.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.gridLayout_4.addWidget(self.patient_status, 1, 0, 1, 1)
 
@@ -234,6 +246,7 @@ class Ui_MainWindow(object):
         self.results_button = QPushButton(self.frame_4)
         self.results_button.setObjectName(u"results_button")
         self.results_button.setFont(font1)
+        self.results_button.setStyleSheet(u"color: red;")
 
         self.verticalLayout.addWidget(self.results_button)
 
@@ -276,24 +289,24 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1235, 572))
         self.gridLayout_6 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.checkBox_2 = QCheckBox(self.scrollAreaWidgetContents)
-        self.checkBox_2.setObjectName(u"checkBox_2")
-        self.checkBox_2.setAutoFillBackground(False)
+        self.behavioralProblems = QCheckBox(self.scrollAreaWidgetContents)
+        self.behavioralProblems.setObjectName(u"behavioralProblems")
+        self.behavioralProblems.setAutoFillBackground(False)
 
-        self.gridLayout_6.addWidget(self.checkBox_2, 3, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.behavioralProblems, 3, 3, 1, 1)
 
-        self.doubleSpinBox_2 = QDoubleSpinBox(self.scrollAreaWidgetContents)
-        self.doubleSpinBox_2.setObjectName(u"doubleSpinBox_2")
+        self.functionalAssesment = QDoubleSpinBox(self.scrollAreaWidgetContents)
+        self.functionalAssesment.setObjectName(u"functionalAssesment")
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Fixed)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.doubleSpinBox_2.sizePolicy().hasHeightForWidth())
-        self.doubleSpinBox_2.setSizePolicy(sizePolicy1)
-        self.doubleSpinBox_2.setAutoFillBackground(True)
-        self.doubleSpinBox_2.setMinimum(0.000000000000000)
-        self.doubleSpinBox_2.setMaximum(10.000000000000000)
+        sizePolicy1.setHeightForWidth(self.functionalAssesment.sizePolicy().hasHeightForWidth())
+        self.functionalAssesment.setSizePolicy(sizePolicy1)
+        self.functionalAssesment.setAutoFillBackground(True)
+        self.functionalAssesment.setMinimum(0.000000000000000)
+        self.functionalAssesment.setMaximum(10.000000000000000)
 
-        self.gridLayout_6.addWidget(self.doubleSpinBox_2, 1, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.functionalAssesment, 1, 3, 1, 1)
 
         self.label_10 = QLabel(self.scrollAreaWidgetContents)
         self.label_10.setObjectName(u"label_10")
@@ -334,15 +347,15 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.label_8, 4, 1, 1, 1)
 
-        self.doubleSpinBox_5 = QDoubleSpinBox(self.scrollAreaWidgetContents)
-        self.doubleSpinBox_5.setObjectName(u"doubleSpinBox_5")
-        sizePolicy1.setHeightForWidth(self.doubleSpinBox_5.sizePolicy().hasHeightForWidth())
-        self.doubleSpinBox_5.setSizePolicy(sizePolicy1)
-        self.doubleSpinBox_5.setAutoFillBackground(True)
-        self.doubleSpinBox_5.setMinimum(0.000000000000000)
-        self.doubleSpinBox_5.setMaximum(10.000000000000000)
+        self.adl = QDoubleSpinBox(self.scrollAreaWidgetContents)
+        self.adl.setObjectName(u"adl")
+        sizePolicy1.setHeightForWidth(self.adl.sizePolicy().hasHeightForWidth())
+        self.adl.setSizePolicy(sizePolicy1)
+        self.adl.setAutoFillBackground(True)
+        self.adl.setMinimum(0.000000000000000)
+        self.adl.setMaximum(10.000000000000000)
 
-        self.gridLayout_6.addWidget(self.doubleSpinBox_5, 4, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.adl, 4, 3, 1, 1)
 
         self.label_13 = QLabel(self.scrollAreaWidgetContents)
         self.label_13.setObjectName(u"label_13")
@@ -360,11 +373,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.label_12, 8, 1, 1, 1)
 
-        self.checkBox_4 = QCheckBox(self.scrollAreaWidgetContents)
-        self.checkBox_4.setObjectName(u"checkBox_4")
-        self.checkBox_4.setAutoFillBackground(False)
+        self.disorientation = QCheckBox(self.scrollAreaWidgetContents)
+        self.disorientation.setObjectName(u"disorientation")
+        self.disorientation.setAutoFillBackground(False)
 
-        self.gridLayout_6.addWidget(self.checkBox_4, 6, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.disorientation, 6, 3, 1, 1)
 
         self.label_7 = QLabel(self.scrollAreaWidgetContents)
         self.label_7.setObjectName(u"label_7")
@@ -390,35 +403,35 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.label_9, 5, 1, 1, 1)
 
-        self.checkBox = QCheckBox(self.scrollAreaWidgetContents)
-        self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setAutoFillBackground(False)
+        self.memoryComplaints = QCheckBox(self.scrollAreaWidgetContents)
+        self.memoryComplaints.setObjectName(u"memoryComplaints")
+        self.memoryComplaints.setAutoFillBackground(False)
 
-        self.gridLayout_6.addWidget(self.checkBox, 2, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.memoryComplaints, 2, 3, 1, 1)
 
-        self.checkBox_7 = QCheckBox(self.scrollAreaWidgetContents)
-        self.checkBox_7.setObjectName(u"checkBox_7")
-        self.checkBox_7.setAutoFillBackground(False)
+        self.diffCompTask = QCheckBox(self.scrollAreaWidgetContents)
+        self.diffCompTask.setObjectName(u"diffCompTask")
+        self.diffCompTask.setAutoFillBackground(False)
 
-        self.gridLayout_6.addWidget(self.checkBox_7, 8, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.diffCompTask, 8, 3, 1, 1)
 
-        self.checkBox_5 = QCheckBox(self.scrollAreaWidgetContents)
-        self.checkBox_5.setObjectName(u"checkBox_5")
-        self.checkBox_5.setAutoFillBackground(False)
+        self.personalityChanges = QCheckBox(self.scrollAreaWidgetContents)
+        self.personalityChanges.setObjectName(u"personalityChanges")
+        self.personalityChanges.setAutoFillBackground(False)
 
-        self.gridLayout_6.addWidget(self.checkBox_5, 7, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.personalityChanges, 7, 3, 1, 1)
 
-        self.checkBox_6 = QCheckBox(self.scrollAreaWidgetContents)
-        self.checkBox_6.setObjectName(u"checkBox_6")
-        self.checkBox_6.setAutoFillBackground(False)
+        self.forgetfulness = QCheckBox(self.scrollAreaWidgetContents)
+        self.forgetfulness.setObjectName(u"forgetfulness")
+        self.forgetfulness.setAutoFillBackground(False)
 
-        self.gridLayout_6.addWidget(self.checkBox_6, 9, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.forgetfulness, 9, 3, 1, 1)
 
-        self.checkBox_3 = QCheckBox(self.scrollAreaWidgetContents)
-        self.checkBox_3.setObjectName(u"checkBox_3")
-        self.checkBox_3.setAutoFillBackground(False)
+        self.confusion = QCheckBox(self.scrollAreaWidgetContents)
+        self.confusion.setObjectName(u"confusion")
+        self.confusion.setAutoFillBackground(False)
 
-        self.gridLayout_6.addWidget(self.checkBox_3, 5, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.confusion, 5, 3, 1, 1)
 
         self.label_3 = QLabel(self.scrollAreaWidgetContents)
         self.label_3.setObjectName(u"label_3")
@@ -460,16 +473,9 @@ class Ui_MainWindow(object):
 
         self.submitButtonCognitive = QPushButton(self.widget_2)
         self.submitButtonCognitive.setObjectName(u"submitButtonCognitive")
-        self.submitButtonCognitive.setEnabled(False)
         self.submitButtonCognitive.setMaximumSize(QSize(300, 16777215))
-        self.submitButtonCognitive.setAutoFillBackground(False)
-        self.submitButtonCognitive.setStyleSheet(u"QPushButton {\n"
+        self.submitButtonCognitive.setStyleSheet(u"QPushButton#submitButtonCognitive {\n"
 "background-color: rgb(85, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"background-color: rgb(85, 170, 0);\n"
 "}")
 
         self.horizontalLayout.addWidget(self.submitButtonCognitive)
@@ -527,11 +533,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_7.addWidget(self.headInjuryClinical, 4, 3, 1, 1)
 
-        self.diabetesClinica = QCheckBox(self.scrollAreaWidgetClinical)
-        self.diabetesClinica.setObjectName(u"diabetesClinica")
-        self.diabetesClinica.setAutoFillBackground(False)
+        self.diabetesClinical = QCheckBox(self.scrollAreaWidgetClinical)
+        self.diabetesClinical.setObjectName(u"diabetesClinical")
+        self.diabetesClinical.setAutoFillBackground(False)
 
-        self.gridLayout_7.addWidget(self.diabetesClinica, 2, 3, 1, 1)
+        self.gridLayout_7.addWidget(self.diabetesClinical, 2, 3, 1, 1)
 
         self.label_13Clinical = QLabel(self.scrollAreaWidgetClinical)
         self.label_13Clinical.setObjectName(u"label_13Clinical")
@@ -731,17 +737,8 @@ class Ui_MainWindow(object):
 
         self.submitButtonClinical = QPushButton(self.widgetsubClinical)
         self.submitButtonClinical.setObjectName(u"submitButtonClinical")
-        self.submitButtonClinical.setEnabled(False)
         self.submitButtonClinical.setMaximumSize(QSize(300, 16777215))
-        self.submitButtonClinical.setAutoFillBackground(False)
-        self.submitButtonClinical.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(85, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"background-color: rgb(85, 170, 0);\n"
-"}")
+        self.submitButtonClinical.setStyleSheet(u"background-color: rgb(85,255,0);")
 
         self.horizontalLayout_2.addWidget(self.submitButtonClinical)
 
@@ -872,6 +869,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4 = QHBoxLayout(self.genderBoxPatient)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.femalePatient = QRadioButton(self.genderBoxPatient)
+        self.buttonGroupGender = QButtonGroup(MainWindow)
+        self.buttonGroupGender.setObjectName(u"buttonGroupGender")
+        self.buttonGroupGender.addButton(self.femalePatient)
         self.femalePatient.setObjectName(u"femalePatient")
         sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Maximum)
         sizePolicy4.setHorizontalStretch(0)
@@ -884,6 +884,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.addWidget(self.femalePatient)
 
         self.malePatient = QRadioButton(self.genderBoxPatient)
+        self.buttonGroupGender.addButton(self.malePatient)
         self.malePatient.setObjectName(u"malePatient")
         self.malePatient.setAutoFillBackground(False)
 
@@ -1004,17 +1005,8 @@ class Ui_MainWindow(object):
 
         self.submitButtonPatient = QPushButton(self.widgetSubPatient)
         self.submitButtonPatient.setObjectName(u"submitButtonPatient")
-        self.submitButtonPatient.setEnabled(False)
         self.submitButtonPatient.setMaximumSize(QSize(300, 16777215))
-        self.submitButtonPatient.setAutoFillBackground(False)
-        self.submitButtonPatient.setStyleSheet(u"QPushButton {\n"
-"background-color: rgb(85, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"background-color: rgb(85, 170, 0);\n"
-"}")
+        self.submitButtonPatient.setStyleSheet(u"background-color: rgb(85,255,0);")
 
         self.horizontalLayout_3.addWidget(self.submitButtonPatient)
 
@@ -1071,37 +1063,37 @@ class Ui_MainWindow(object):
         self.loginTitle.setText(QCoreApplication.translate("MainWindow", u"Login With Patient ID", None))
         self.GeneticLabel_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">Cognitive Results</span></p></body></html>", None))
         self.cognitive_button.setText(QCoreApplication.translate("MainWindow", u"Go To", None))
-        self.cognitive_status.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700; color:#ff0000;\">Incomplete</span></p></body></html>", None))
-        self.genetic_label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">Genetic Results</span></p></body></html>", None))
-        self.genetic_status.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700; color:#ff0000;\">Incomplete</span></p></body></html>", None))
+        self.cognitive_status.setText(QCoreApplication.translate("MainWindow", u"Incomplete", None))
+        self.genetic_label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">Clinical Results</span></p></body></html>", None))
+        self.genetic_status.setText(QCoreApplication.translate("MainWindow", u"Incomplete", None))
         self.genetic_button.setText(QCoreApplication.translate("MainWindow", u"Go To", None))
         self.GeneticLabel_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">Patient Survey</span></p></body></html>", None))
-        self.patient_status.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700; color:#ff0000;\">Incomplete</span></p></body></html>", None))
+        self.patient_status.setText(QCoreApplication.translate("MainWindow", u"Incomplete", None))
         self.patient_button.setText(QCoreApplication.translate("MainWindow", u"Go To", None))
         self.results_button.setText(QCoreApplication.translate("MainWindow", u"Computed Results Page", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Cognitive Results", None))
-        self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.behavioralProblems.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Disorientation</span></p></body></html>", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Functional Assessment</span></p></body></html>", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Personality Changes</span></p></body></html>", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">ADL</span></p></body></html>", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Forgetfulness</span></p></body></html>", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Difficulty Completing Tasks</span></p></body></html>", None))
-        self.checkBox_4.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.disorientation.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Behavioral Problems</span></p></body></html>", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Memory Complaints</span></p></body></html>", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Confusion</span></p></body></html>", None))
-        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
-        self.checkBox_7.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
-        self.checkBox_5.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
-        self.checkBox_6.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
-        self.checkBox_3.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.memoryComplaints.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.diffCompTask.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.personalityChanges.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.forgetfulness.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.confusion.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">MMSE</span></p></body></html>", None))
         self.submitButtonCognitive.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
         self.label_4Clinical.setText(QCoreApplication.translate("MainWindow", u"Clinical Results", None))
         self.label_8Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Head Injury</span></p></body></html>", None))
         self.headInjuryClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
-        self.diabetesClinica.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.diabetesClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
         self.label_13Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Cholesterol LDL</span></p></body></html>", None))
         self.label_9Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Hypertension</span></p></body></html>", None))
         self.depressionClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
@@ -1119,10 +1111,10 @@ class Ui_MainWindow(object):
         self.cardiovascularDiseaseClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
         self.submitButtonClinical.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
         self.label_4Patient.setText(QCoreApplication.translate("MainWindow", u"Patient Survey", None))
-        self.educationPatient.setItemText(0, QCoreApplication.translate("MainWindow", u"No Highschool", None))
+        self.educationPatient.setItemText(0, QCoreApplication.translate("MainWindow", u"None", None))
         self.educationPatient.setItemText(1, QCoreApplication.translate("MainWindow", u"High School", None))
         self.educationPatient.setItemText(2, QCoreApplication.translate("MainWindow", u"Bachelors", None))
-        self.educationPatient.setItemText(3, QCoreApplication.translate("MainWindow", u"Masters", None))
+        self.educationPatient.setItemText(3, QCoreApplication.translate("MainWindow", u"Higher", None))
 
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Ethnicity</span></p></body></html>", None))
         self.smokingPatient.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
@@ -1133,10 +1125,10 @@ class Ui_MainWindow(object):
         self.femalePatient.setText(QCoreApplication.translate("MainWindow", u"Female", None))
         self.malePatient.setText(QCoreApplication.translate("MainWindow", u"Male", None))
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Gender</span></p></body></html>", None))
-        self.ethnicityPatient.setItemText(0, QCoreApplication.translate("MainWindow", u"White", None))
-        self.ethnicityPatient.setItemText(1, QCoreApplication.translate("MainWindow", u"Black", None))
+        self.ethnicityPatient.setItemText(0, QCoreApplication.translate("MainWindow", u"Caucasian", None))
+        self.ethnicityPatient.setItemText(1, QCoreApplication.translate("MainWindow", u"African American", None))
         self.ethnicityPatient.setItemText(2, QCoreApplication.translate("MainWindow", u"Asian", None))
-        self.ethnicityPatient.setItemText(3, QCoreApplication.translate("MainWindow", u"Hispanic", None))
+        self.ethnicityPatient.setItemText(3, QCoreApplication.translate("MainWindow", u"Other", None))
 
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Education Level</span></p></body></html>", None))
         self.label_20.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">BMI</span></p></body></html>", None))
