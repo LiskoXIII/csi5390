@@ -1038,14 +1038,55 @@ class Ui_MainWindow(object):
 "}")
         self.verticalLayout_5 = QVBoxLayout(self.widgetResult)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.label_4Patient_2 = QLabel(self.widgetResult)
-        self.label_4Patient_2.setObjectName(u"label_4Patient_2")
-        sizePolicy.setHeightForWidth(self.label_4Patient_2.sizePolicy().hasHeightForWidth())
-        self.label_4Patient_2.setSizePolicy(sizePolicy)
-        self.label_4Patient_2.setFont(font)
-        self.label_4Patient_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_results = QLabel(self.widgetResult)
+        self.label_results.setObjectName(u"label_results")
+        sizePolicy.setHeightForWidth(self.label_results.sizePolicy().hasHeightForWidth())
+        self.label_results.setSizePolicy(sizePolicy)
+        self.label_results.setFont(font)
+        self.label_results.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.verticalLayout_5.addWidget(self.label_4Patient_2)
+        self.verticalLayout_5.addWidget(self.label_results)
+
+        self.label_diagnosis = QLabel(self.widgetResult)
+        self.label_diagnosis.setObjectName(u"label_diagnosis")
+        font3 = QFont()
+        font3.setPointSize(14)
+        font3.setBold(True)
+        self.label_diagnosis.setFont(font3)
+        self.label_diagnosis.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_5.addWidget(self.label_diagnosis)
+
+        self.scrollAreaResult = QScrollArea(self.widgetResult)
+        self.scrollAreaResult.setObjectName(u"scrollAreaResult")
+        self.scrollAreaResult.setWidgetResizable(True)
+        self.scrollAreaWidgetContentsResult = QWidget()
+        self.scrollAreaWidgetContentsResult.setObjectName(u"scrollAreaWidgetContentsResult")
+        self.scrollAreaWidgetContentsResult.setGeometry(QRect(0, 0, 1235, 78))
+        self.scrollAreaWidgetContentsResult.setStyleSheet(u"background-color: rgb(176, 125, 180)")
+        self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContentsResult)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.labelMMSE = QLabel(self.scrollAreaWidgetContentsResult)
+        self.labelMMSE.setObjectName(u"labelMMSE")
+        self.labelMMSE.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_6.addWidget(self.labelMMSE)
+
+        self.labelADL = QLabel(self.scrollAreaWidgetContentsResult)
+        self.labelADL.setObjectName(u"labelADL")
+        self.labelADL.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_6.addWidget(self.labelADL)
+
+        self.labelFA = QLabel(self.scrollAreaWidgetContentsResult)
+        self.labelFA.setObjectName(u"labelFA")
+        self.labelFA.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_6.addWidget(self.labelFA)
+
+        self.scrollAreaResult.setWidget(self.scrollAreaWidgetContentsResult)
+
+        self.verticalLayout_5.addWidget(self.scrollAreaResult)
 
 
         self.verticalLayoutMain.addWidget(self.widgetResult)
@@ -1146,6 +1187,10 @@ class Ui_MainWindow(object):
         self.label_22.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Physical Activity</span></p></body></html>", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Diet Quality</span></p></body></html>", None))
         self.submitButtonPatient.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
-        self.label_4Patient_2.setText(QCoreApplication.translate("MainWindow", u"Results", None))
+        self.label_results.setText(QCoreApplication.translate("MainWindow", u"Results", None))
+        self.label_diagnosis.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.labelMMSE.setText("")
+        self.labelADL.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.labelFA.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
     # retranslateUi
 

@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import joblib
 from catboost import CatBoostClassifier
@@ -5,8 +6,8 @@ from catboost import CatBoostClassifier
 
 #using the same preprocess objects that were used to train the model
 def load_preprocessing_objects():
-    min_max_scaler = joblib.load("min_max_scaler.joblib")
-    standard_scaler = joblib.load("standard_scaler.joblib")
+    min_max_scaler = joblib.load(os.path.join("prediction","min_max_scaler.joblib"))
+    standard_scaler = joblib.load(os.path.join("prediction","standard_scaler.joblib"))
     return min_max_scaler, standard_scaler
 
 
@@ -29,7 +30,7 @@ def preprocess_new_data(new_data, min_max_scaler, standard_scaler):
 #load the trained model
 def load_model():
     model = CatBoostClassifier()
-    model.load_model("catboost_model.cbm")
+    model.load_model(os.path.join("prediction","catboost_model.cbm"))
     return model
 
 def make_prediction(dataframe):
@@ -49,5 +50,5 @@ def make_prediction(dataframe):
     diagnosis = pd.DataFrame()
     diagnosis['Diagnosis_Prediction'] = predictions
 
-    print("Predictions saved to 'predictions.csv'")
+    # print("Predictions saved to 'predictions.csv'")
     return diagnosis

@@ -1,10 +1,14 @@
 import sys
+import os
 
+from prediction.predict import make_prediction
+from prediction.analysis import analyze
 from patient import Patient
 from dataset import EducationLevel, Ethnicity
 from ui.ui_adps import Ui_MainWindow
 
 from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtGui import QPixmap
 
 
 class ADPS(QMainWindow, Ui_MainWindow):
@@ -143,6 +147,20 @@ class ADPS(QMainWindow, Ui_MainWindow):
             self.results_button.setStyleSheet("color: green;")
 
     def goto_result(self):
+        self.patient.result = make_prediction(self.patient.data.to_dataframe())
+        analyze(self.patient.data.to_dataframe(), self.patient.result)
+
+        if self.patient.result == 1:
+            self.label_diagnosis.setText("Positive for Alzheimer's Disease")
+            self.label_diagnosis.setStyleSheet("color: red;")
+        else:
+            self.label_diagnosis.setText("Negative for Alzheimer's Disease")
+            self.label_diagnosis.setStyleSheet("color: green;")
+
+        self.labelADL.setPixmap(QPixmap(os.path.join("prediction","plot_ADL.png")))
+        self.labelFA.setPixmap(QPixmap(os.path.join("prediction","plot_FunctionalAssessment.png")))
+        self.labelMMSE.setPixmap(QPixmap(os.path.join("prediction","plot_MMSE.png")))
+
         self.widgetResult.setEnabled(True)
         self.widgetResult.setVisible(True)
         self.widgetHomepage.setVisible(False)

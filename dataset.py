@@ -421,7 +421,7 @@ class Dataset:
         else:
             raise ValueError("Forgetfulness must be 0 (No) or 1 (Yes)")
     
-    def get_dataframe(self):
+    def to_dataframe(self):
         data = {
             'Age': [self._age],
             'Gender': [self._gender],

@@ -1,17 +1,17 @@
+import os
+
 import matplotlib.pyplot as plt
 import pandas
 import seaborn as sns
 import pandas as pd
 
 
-def analyze(patient_df, prediction_df):
-    df = pd.read_csv("../data/alzheimers_disease_data.csv")
+def analyze(patient_df, prediction_result):
+    df = pd.read_csv(os.path.join("data","alzheimers_disease_data.csv"))
     patient_features = patient_df
-    predictions = prediction_df
 
-    patient_diagnosis = predictions.loc[0, "Diagnosis_Prediction"]
     patient_data = patient_features.iloc[0].copy()
-    patient_data['Diagnosis'] = patient_diagnosis
+    patient_data['Diagnosis'] = prediction_result
 
     # most important features to use
     feature_list = ['FunctionalAssessment', 'ADL', 'MMSE']
@@ -22,7 +22,7 @@ def analyze(patient_df, prediction_df):
         sns.swarmplot(data=df, y=feature, x='Diagnosis', color='skyblue', alpha=0.7)
 
         sns.scatterplot(
-            x=[patient_diagnosis],
+            x=[prediction_result],
             y=[patient_data[feature]],
             color='red',
             edgecolor='black',  # Add edge color
@@ -34,7 +34,7 @@ def analyze(patient_df, prediction_df):
 
         plt.annotate(
             'Current Patient',
-            xy=(patient_diagnosis, patient_data[feature]),
+            xy=(prediction_result, patient_data[feature]),
             xytext=(5, 5),
             textcoords='offset points',
             fontsize=12,
