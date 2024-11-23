@@ -168,7 +168,10 @@ class Dataset:
 
     @sleep_quality.setter
     def sleep_quality(self, value: float):
-        self._sleep_quality = value
+        if 4.0 >= value <= 10.0:
+            self._sleep_quality = value
+        else:
+            raise ValueError("Sleep quality must be float and between 4.0 and 10.0")
 
 
     # Genetic
@@ -178,7 +181,10 @@ class Dataset:
 
     @family_history_alzheimers.setter
     def family_history_alzheimers(self, value: int):
-        self._family_history_alzheimers = value
+        if value in Decision._value2member_map_:
+            self._family_history_alzheimers = value
+        else:
+            raise ValueError("Family history alzheimers must be 0 (No) or 1 (Yes)")
 
     @property
     def cardiovascular_disease(self):
@@ -186,7 +192,10 @@ class Dataset:
 
     @cardiovascular_disease.setter
     def cardiovascular_disease(self, value: int):
-        self._cardiovascular_disease = value
+        if value in Decision._value2member_map_:
+            self._cardiovascular_disease = value
+        else:
+            raise ValueError("Cardiovascular disease must be 0 (No) or 1 (Yes)")
 
     @property
     def diabetes(self):
@@ -194,7 +203,10 @@ class Dataset:
 
     @diabetes.setter
     def diabetes(self, value: int):
-        self._diabetes = value
+        if value in Decision._value2member_map_:
+            self._diabetes = value
+        else:
+            raise ValueError("Diabetes must be 0 (No) or 1 (Yes)")
 
     @property
     def depression(self):
@@ -202,7 +214,10 @@ class Dataset:
 
     @depression.setter
     def depression(self, value: int):
-        self._depression = value
+        if value in Decision._value2member_map_:
+            self._depression = value
+        else:
+            raise ValueError("Depression must be 0 (No) or 1 (Yes)")
 
     @property
     def head_injury(self):
@@ -210,7 +225,10 @@ class Dataset:
 
     @head_injury.setter
     def head_injury(self, value: int):
-        self._head_injury = value
+        if value in Decision._value2member_map_:
+            self._head_injury = value
+        else:
+            raise ValueError("Head injury must be 0 (No) or 1 (Yes)")
 
     @property
     def hypertension(self):
@@ -218,7 +236,10 @@ class Dataset:
 
     @hypertension.setter
     def hypertension(self, value: int):
-        self._hypertension = value
+        if value in Decision._value2member_map_:
+            self._hypertension = value
+        else:
+            raise ValueError("Hypertension must be 0 (No) or 1 (Yes)")
 
     # Clinical
     @property
@@ -227,7 +248,11 @@ class Dataset:
 
     @systolic_bp.setter
     def systolic_bp(self, value: float):
-        self._systolic_bp = value
+        value = round(value, 0)
+        if 90 >= value <= 179:
+            self._systolic_bp = value
+        else:
+            raise ValueError("Systolic BP must be float and between 90 and 179")
 
     @property
     def diastolic_bp(self):
@@ -235,7 +260,11 @@ class Dataset:
 
     @diastolic_bp.setter
     def diastolic_bp(self, value: float):
-        self._diastolic_bp = value
+        value = round(value, 0)
+        if 60 >= value <= 119:
+            self._diastolic_bp = value
+        else:
+            raise ValueError("Diastolic BP must be float and between 60 and 119")
 
     @property
     def cholesterol_total(self):
@@ -243,7 +272,10 @@ class Dataset:
 
     @cholesterol_total.setter
     def cholesterol_total(self, value: float):
-        self._cholesterol_total = value
+        if 150.0 >= value <= 300.0:
+            self._cholesterol_total = value
+        else:
+            raise ValueError("Cholesterol total must be float and between 150.0 and 300.0")
 
     @property
     def cholesterol_ldl(self):
@@ -251,7 +283,10 @@ class Dataset:
 
     @cholesterol_ldl.setter
     def cholesterol_ldl(self, value: float):
-        self._cholesterol_ldl = value
+        if 50.0 >= value <= 200.0:
+            self._cholesterol_ldl = value
+        else:
+            raise ValueError("Cholesterol LDL must be float and between 50.0 and 200.0")
 
     @property
     def cholesterol_hdl(self):
@@ -259,7 +294,10 @@ class Dataset:
 
     @cholesterol_hdl.setter
     def cholesterol_hdl(self, value: float):
-        self._cholesterol_hdl = value
+        if 20.0 >= value <= 100.0:
+            self._cholesterol_hdl = value
+        else:
+            raise ValueError("Cholesterol HDL must be float and between 20.0 and 100.0")
 
     @property
     def cholesterol_triglycerides(self):
@@ -267,7 +305,10 @@ class Dataset:
 
     @cholesterol_triglycerides.setter
     def cholesterol_triglycerides(self, value: float):
-        self._cholesterol_triglycerides = value
+        if 50.0 >= value <= 400.0:
+            self._cholesterol_triglycerides = value
+        else:
+            raise ValueError("Cholesterol Triglycerides must be float and between 50.0 and 400.0")
 
     # Cognitive
     @property
@@ -276,7 +317,10 @@ class Dataset:
 
     @mmse.setter
     def mmse(self, value: float):
-        self._mmse = value
+        if 0.01 >= value <= 30.0:
+            self._mmse = value
+        else:
+            raise ValueError("MMSE must be float and between 0.01 and 10.0")
 
     @property
     def functional_assessment(self):
@@ -284,7 +328,10 @@ class Dataset:
 
     @functional_assessment.setter
     def functional_assessment(self, value: float):
-        self._functional_assessment = value
+        if 0.0 >= value <= 10.0:
+            self._functional_assessment = value
+        else:
+            raise ValueError("Functional assessment must be float and between 0.0 and 10.0")
 
     @property
     def memory_complaints(self):
@@ -292,7 +339,10 @@ class Dataset:
 
     @memory_complaints.setter
     def memory_complaints(self, value: int):
-        self._memory_complaints = value
+        if value in Decision._value2member_map_:
+            self._memory_complaints = value
+        else:
+            raise ValueError("Memory complaints must be 0 (No) or 1 (Yes)")
 
     @property
     def behavioral_problems(self):
@@ -300,7 +350,10 @@ class Dataset:
 
     @behavioral_problems.setter
     def behavioral_problems(self, value: int):
-        self._behavioral_problems = value
+        if value in Decision._value2member_map_:
+            self._behavioral_problems = value
+        else:
+            raise ValueError("Behavioral problems must be 0 (No) or 1 (Yes)")
 
     @property
     def adl(self):
@@ -308,7 +361,10 @@ class Dataset:
 
     @adl.setter
     def adl(self, value: float):
-        self._adl = value
+        if 0.0 >= value <= 10.0:
+            self._adl = value
+        else:
+            raise ValueError("ADL must be float and between 0.0 and 10.0")
 
     @property
     def confusion(self):
@@ -316,7 +372,10 @@ class Dataset:
 
     @confusion.setter
     def confusion(self, value: int):
-        self._confusion = value
+        if value in Decision._value2member_map_:
+            self._confusion = value
+        else:
+            raise ValueError("Confusion must be 0 (No) or 1 (Yes)")
 
     @property
     def disorientation(self):
@@ -324,7 +383,10 @@ class Dataset:
 
     @disorientation.setter
     def disorientation(self, value: int):
-        self._disorientation = value
+        if value in Decision._value2member_map_:
+            self._disorientation = value
+        else:
+            raise ValueError("Disorientation must be 0 (No) or 1 (Yes)")
 
     @property
     def personality_changes(self):
@@ -332,7 +394,10 @@ class Dataset:
 
     @personality_changes.setter
     def personality_changes(self, value: int):
-        self._personality_changes = value
+        if value in Decision._value2member_map_:
+            self._personality_changes = value
+        else:
+            raise ValueError("Personality changes must be 0 (No) or 1 (Yes)")
 
     @property
     def difficulty_completing_tasks(self):
@@ -340,7 +405,10 @@ class Dataset:
 
     @difficulty_completing_tasks.setter
     def difficulty_completing_tasks(self, value: int):
-        self._difficulty_completing_tasks = value
+        if value in Decision._value2member_map_:
+            self._difficulty_completing_tasks = value
+        else:
+            raise ValueError("Difficulty completing tasks must be 0 (No) or 1 (Yes)")
 
     @property
     def forgetfulness(self):
@@ -348,8 +416,12 @@ class Dataset:
 
     @forgetfulness.setter
     def forgetfulness(self, value: int):
-        self._forgetfulness = value
+        if value in Decision._value2member_map_:
+            self._forgetfulness = value
+        else:
+            raise ValueError("Forgetfulness must be 0 (No) or 1 (Yes)")
 
+# PatientID,Age,Gender,Ethnicity,EducationLevel,BMI,Smoking,AlcoholConsumption,PhysicalActivity,DietQuality,SleepQuality,FamilyHistoryAlzheimers,CardiovascularDisease,Diabetes,Depression,HeadInjury,Hypertension,SystolicBP,DiastolicBP,CholesterolTotal,CholesterolLDL,CholesterolHDL,CholesterolTriglycerides,MMSE,FunctionalAssessment,MemoryComplaints,BehavioralProblems,ADL,Confusion,Disorientation,PersonalityChanges,DifficultyCompletingTasks,Forgetfulness,Diagnosis,DoctorInCharge
     
     def get_dataframe(self):
         data = {
