@@ -68,7 +68,7 @@ class Dataset:
 
     @age.setter
     def age(self, value: float):
-        if 60.0 >= value <= 90.0:
+        if 60.0 <= value <= 90.0:
             self._age = value
         else:
             raise ValueError("Age must be float and between 60.0 and 90.0")
@@ -113,7 +113,7 @@ class Dataset:
 
     @bmi.setter
     def bmi(self, value: float):
-        if 15 >= value <= 40:
+        if 15 <= value <= 40:
             self._bmi = value
         else:
             raise ValueError("BMI must be a float and between 15 and 40")
@@ -135,7 +135,7 @@ class Dataset:
 
     @alcohol_consumption.setter
     def alcohol_consumption(self, value: float):
-        if 0 >= value <= 20:
+        if 0 <= value <= 20:
             self._alcohol_consumption = value
         else:
             raise ValueError("Alcohol consumption must be a float and between 0 and 20")
@@ -146,7 +146,7 @@ class Dataset:
 
     @physical_activity.setter
     def physical_activity(self, value: float):
-        if 0 >= value <= 9.99:
+        if 0 <= value <= 9.99:
             self._physical_activity = value
         else:
             raise ValueError("Physical activity must be a float and between 0 and 9.99")
@@ -157,7 +157,7 @@ class Dataset:
 
     @diet_quality.setter
     def diet_quality(self, value: float):
-        if 0.01 >= value <= 10.0:
+        if 0.01 <= value <= 10.0:
             self._diet_quality = value
         else:
             raise ValueError("Diet quality must be float and between 0.01 and 10.0")
@@ -168,7 +168,7 @@ class Dataset:
 
     @sleep_quality.setter
     def sleep_quality(self, value: float):
-        if 4.0 >= value <= 10.0:
+        if 4.0 <= value <= 10.0:
             self._sleep_quality = value
         else:
             raise ValueError("Sleep quality must be float and between 4.0 and 10.0")
@@ -249,7 +249,7 @@ class Dataset:
     @systolic_bp.setter
     def systolic_bp(self, value: float):
         value = round(value, 0)
-        if 90 >= value <= 179:
+        if 90 <= value <= 179:
             self._systolic_bp = value
         else:
             raise ValueError("Systolic BP must be float and between 90 and 179")
@@ -261,7 +261,7 @@ class Dataset:
     @diastolic_bp.setter
     def diastolic_bp(self, value: float):
         value = round(value, 0)
-        if 60 >= value <= 119:
+        if 60 <= value <= 119:
             self._diastolic_bp = value
         else:
             raise ValueError("Diastolic BP must be float and between 60 and 119")
@@ -272,7 +272,7 @@ class Dataset:
 
     @cholesterol_total.setter
     def cholesterol_total(self, value: float):
-        if 150.0 >= value <= 300.0:
+        if 150.0 <= value <= 300.0:
             self._cholesterol_total = value
         else:
             raise ValueError("Cholesterol total must be float and between 150.0 and 300.0")
@@ -283,7 +283,7 @@ class Dataset:
 
     @cholesterol_ldl.setter
     def cholesterol_ldl(self, value: float):
-        if 50.0 >= value <= 200.0:
+        if 50.0 <= value <= 200.0:
             self._cholesterol_ldl = value
         else:
             raise ValueError("Cholesterol LDL must be float and between 50.0 and 200.0")
@@ -294,7 +294,7 @@ class Dataset:
 
     @cholesterol_hdl.setter
     def cholesterol_hdl(self, value: float):
-        if 20.0 >= value <= 100.0:
+        if 20.0 <= value <= 100.0:
             self._cholesterol_hdl = value
         else:
             raise ValueError("Cholesterol HDL must be float and between 20.0 and 100.0")
@@ -305,7 +305,7 @@ class Dataset:
 
     @cholesterol_triglycerides.setter
     def cholesterol_triglycerides(self, value: float):
-        if 50.0 >= value <= 400.0:
+        if 50.0 <= value <= 400.0:
             self._cholesterol_triglycerides = value
         else:
             raise ValueError("Cholesterol Triglycerides must be float and between 50.0 and 400.0")
@@ -317,7 +317,7 @@ class Dataset:
 
     @mmse.setter
     def mmse(self, value: float):
-        if 0.01 >= value <= 30.0:
+        if 0.01 <= value <= 30.0:
             self._mmse = value
         else:
             raise ValueError("MMSE must be float and between 0.01 and 10.0")
@@ -328,7 +328,7 @@ class Dataset:
 
     @functional_assessment.setter
     def functional_assessment(self, value: float):
-        if 0.0 >= value <= 10.0:
+        if 0.0 <= value <= 10.0:
             self._functional_assessment = value
         else:
             raise ValueError("Functional assessment must be float and between 0.0 and 10.0")
@@ -361,7 +361,7 @@ class Dataset:
 
     @adl.setter
     def adl(self, value: float):
-        if 0.0 >= value <= 10.0:
+        if 0.0 <= value <= 10.0:
             self._adl = value
         else:
             raise ValueError("ADL must be float and between 0.0 and 10.0")
@@ -420,8 +420,6 @@ class Dataset:
             self._forgetfulness = value
         else:
             raise ValueError("Forgetfulness must be 0 (No) or 1 (Yes)")
-
-# Age,Gender,Ethnicity,EducationLevel,BMI,Smoking,AlcoholConsumption,PhysicalActivity,DietQuality,SleepQuality,FamilyHistoryAlzheimers,CardiovascularDisease,Diabetes,Depression,HeadInjury,Hypertension,SystolicBP,DiastolicBP,CholesterolTotal,CholesterolLDL,CholesterolHDL,CholesterolTriglycerides,MMSE,FunctionalAssessment,MemoryComplaints,BehavioralProblems,ADL,Confusion,Disorientation,PersonalityChanges,DifficultyCompletingTasks,Forgetfulness,Diagnosis,DoctorInCharge
     
     def get_dataframe(self):
         data = {
@@ -432,31 +430,31 @@ class Dataset:
             'BMI': [self._bmi],
             'Smoking': [self._smoking],
             'AlcoholConsumption': [self._alcohol_consumption],
-            'physical_activity': [self._physical_activity],
-            'diet_quality': [self._diet_quality],
-            'sleep_quality': [self._sleep_quality],
-            'family_history_alzheimers': [self._family_history_alzheimers],
-            'cardiovascular_disease': [self._cardiovascular_disease],
-            'diabetes': [self._diabetes],
-            'depression': [self._depression],
-            'head_injury': [self._head_injury],
-            'hypertension': [self._hypertension],
-            'systolic_bp': [self._systolic_bp],
-            'diastolic_bp': [self._diastolic_bp],
-            'cholesterol_total': [self._cholesterol_total],
-            'cholesterol_ldl': [self._cholesterol_ldl],
-            'cholesterol_hdl': [self._cholesterol_hdl],
-            'cholesterol_triglycerides': [self._cholesterol_triglycerides],
-            'mmse': [self._mmse],
-            'functional_assessment': [self._functional_assessment],
-            'memory_complaints': [self._memory_complaints],
-            'behavioral_problems': [self._behavioral_problems],
-            'adl': [self._adl],
-            'confusion': [self._confusion],
-            'disorientation': [self._disorientation],
-            'personality_changes': [self._personality_changes],
-            'difficulty_completing_tasks': [self._difficulty_completing_tasks],
-            'forgetfulness': [self._forgetfulness]
+            'PhysicalActivity': [self._physical_activity],
+            'DietQuality': [self._diet_quality],
+            'SleepQuality': [self._sleep_quality],
+            'FamilyHistoryAlzheimers': [self._family_history_alzheimers],
+            'CardiovascularDisease': [self._cardiovascular_disease],
+            'Diabetes': [self._diabetes],
+            'Depression': [self._depression],
+            'HeadInjury': [self._head_injury],
+            'Hypertension': [self._hypertension],
+            'SystolicBP': [self._systolic_bp],
+            'DiastolicBP': [self._diastolic_bp],
+            'CholesterolTotal': [self._cholesterol_total],
+            'CholesterolLDL': [self._cholesterol_ldl],
+            'CholesterolHDL': [self._cholesterol_hdl],
+            'CholesterolTriglycerides': [self._cholesterol_triglycerides],
+            'MMSE': [self._mmse],
+            'FunctionalAssessment': [self._functional_assessment],
+            'MemoryComplaints': [self._memory_complaints],
+            'BehavioralProblems': [self._behavioral_problems],
+            'ADL': [self._adl],
+            'Confusion': [self._confusion],
+            'Disorientation': [self._disorientation],
+            'PersonalityChanges': [self._personality_changes],
+            'DifficultyCompletingTasks': [self._difficulty_completing_tasks],
+            'Forgetfulness': [self._forgetfulness]
         }
 
         return pd.DataFrame(data)
