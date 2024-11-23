@@ -1634,7 +1634,7 @@ background-color: rgb(255, 255, 255);
               <enum>Qt::Orientation::Horizontal</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Policy::Preferred</enum>
+              <enum>QSizePolicy::Policy::Expanding</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -1647,7 +1647,7 @@ background-color: rgb(255, 255, 255);
            <item row="12" column="4">
             <widget class="QDoubleSpinBox" name="physicalPatient">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -1669,7 +1669,7 @@ background-color: rgb(255, 255, 255);
               <enum>Qt::Orientation::Horizontal</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Policy::Preferred</enum>
+              <enum>QSizePolicy::Policy::Expanding</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -1681,6 +1681,12 @@ background-color: rgb(255, 255, 255);
            </item>
            <item row="8" column="4">
             <widget class="QComboBox" name="educationPatient">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="autoFillBackground">
               <bool>true</bool>
              </property>
@@ -1727,6 +1733,12 @@ background-color: rgb(255, 255, 255);
            </item>
            <item row="10" column="4">
             <widget class="QCheckBox" name="smokingPatient">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="autoFillBackground">
               <bool>false</bool>
              </property>
@@ -1738,7 +1750,7 @@ background-color: rgb(255, 255, 255);
            <item row="11" column="4">
             <widget class="QDoubleSpinBox" name="alcoholPatient">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -1817,7 +1829,7 @@ background-color: rgb(255, 255, 255);
               <enum>Qt::Orientation::Horizontal</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Policy::Preferred</enum>
+              <enum>QSizePolicy::Policy::Expanding</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -1829,6 +1841,12 @@ background-color: rgb(255, 255, 255);
            </item>
            <item row="6" column="4">
             <widget class="QGroupBox" name="genderBoxPatient">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="title">
               <string>GroupBox</string>
              </property>
@@ -1843,6 +1861,9 @@ background-color: rgb(255, 255, 255);
                 </property>
                 <property name="autoFillBackground">
                  <bool>false</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: black;</string>
                 </property>
                 <property name="text">
                  <string>Female</string>
@@ -1859,6 +1880,9 @@ background-color: rgb(255, 255, 255);
                <widget class="QRadioButton" name="malePatient">
                 <property name="autoFillBackground">
                  <bool>false</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: black;</string>
                 </property>
                 <property name="text">
                  <string>Male</string>
@@ -1892,6 +1916,12 @@ background-color: rgb(255, 255, 255);
            </item>
            <item row="7" column="4">
             <widget class="QComboBox" name="ethnicityPatient">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="autoFillBackground">
               <bool>true</bool>
              </property>
@@ -1977,7 +2007,7 @@ background-color: rgb(255, 255, 255);
            <item row="14" column="4">
             <widget class="QDoubleSpinBox" name="sleepPatient">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -1996,7 +2026,7 @@ background-color: rgb(255, 255, 255);
            <item row="9" column="4">
             <widget class="QDoubleSpinBox" name="bmiPatient">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -2034,7 +2064,7 @@ background-color: rgb(255, 255, 255);
            <item row="13" column="4">
             <widget class="QDoubleSpinBox" name="dietPatient">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -2072,7 +2102,7 @@ background-color: rgb(255, 255, 255);
            <item row="4" column="4">
             <widget class="QSpinBox" name="agePatient">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>

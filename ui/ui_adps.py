@@ -781,24 +781,21 @@ class Ui_MainWindow(object):
 "}")
         self.gridLayout_8 = QGridLayout(self.scrollAreaWidgetPatient)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_8.addItem(self.horizontalSpacer_12, 9, 3, 1, 1)
 
         self.physicalPatient = QDoubleSpinBox(self.scrollAreaWidgetPatient)
         self.physicalPatient.setObjectName(u"physicalPatient")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.physicalPatient.sizePolicy().hasHeightForWidth())
-        self.physicalPatient.setSizePolicy(sizePolicy3)
+        sizePolicy1.setHeightForWidth(self.physicalPatient.sizePolicy().hasHeightForWidth())
+        self.physicalPatient.setSizePolicy(sizePolicy1)
         self.physicalPatient.setAutoFillBackground(True)
         self.physicalPatient.setMinimum(0.000000000000000)
         self.physicalPatient.setMaximum(9.990000000000000)
 
         self.gridLayout_8.addWidget(self.physicalPatient, 12, 4, 1, 1)
 
-        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_8.addItem(self.horizontalSpacer_13, 9, 0, 1, 1)
 
@@ -808,6 +805,8 @@ class Ui_MainWindow(object):
         self.educationPatient.addItem("")
         self.educationPatient.addItem("")
         self.educationPatient.setObjectName(u"educationPatient")
+        sizePolicy1.setHeightForWidth(self.educationPatient.sizePolicy().hasHeightForWidth())
+        self.educationPatient.setSizePolicy(sizePolicy1)
         self.educationPatient.setAutoFillBackground(True)
 
         self.gridLayout_8.addWidget(self.educationPatient, 8, 4, 1, 1)
@@ -822,14 +821,16 @@ class Ui_MainWindow(object):
 
         self.smokingPatient = QCheckBox(self.scrollAreaWidgetPatient)
         self.smokingPatient.setObjectName(u"smokingPatient")
+        sizePolicy1.setHeightForWidth(self.smokingPatient.sizePolicy().hasHeightForWidth())
+        self.smokingPatient.setSizePolicy(sizePolicy1)
         self.smokingPatient.setAutoFillBackground(False)
 
         self.gridLayout_8.addWidget(self.smokingPatient, 10, 4, 1, 1)
 
         self.alcoholPatient = QDoubleSpinBox(self.scrollAreaWidgetPatient)
         self.alcoholPatient.setObjectName(u"alcoholPatient")
-        sizePolicy3.setHeightForWidth(self.alcoholPatient.sizePolicy().hasHeightForWidth())
-        self.alcoholPatient.setSizePolicy(sizePolicy3)
+        sizePolicy1.setHeightForWidth(self.alcoholPatient.sizePolicy().hasHeightForWidth())
+        self.alcoholPatient.setSizePolicy(sizePolicy1)
         self.alcoholPatient.setAutoFillBackground(True)
         self.alcoholPatient.setMinimum(0.000000000000000)
         self.alcoholPatient.setMaximum(20.000000000000000)
@@ -860,12 +861,17 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addWidget(self.label_17, 11, 2, 1, 1)
 
-        self.horizontalSpacer_14 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_14 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_8.addItem(self.horizontalSpacer_14, 9, 5, 1, 1)
 
         self.genderBoxPatient = QGroupBox(self.scrollAreaWidgetPatient)
         self.genderBoxPatient.setObjectName(u"genderBoxPatient")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.genderBoxPatient.sizePolicy().hasHeightForWidth())
+        self.genderBoxPatient.setSizePolicy(sizePolicy3)
         self.horizontalLayout_4 = QHBoxLayout(self.genderBoxPatient)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.femalePatient = QRadioButton(self.genderBoxPatient)
@@ -879,6 +885,7 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.femalePatient.sizePolicy().hasHeightForWidth())
         self.femalePatient.setSizePolicy(sizePolicy4)
         self.femalePatient.setAutoFillBackground(False)
+        self.femalePatient.setStyleSheet(u"color: black;")
         self.femalePatient.setChecked(True)
 
         self.horizontalLayout_4.addWidget(self.femalePatient)
@@ -887,6 +894,7 @@ class Ui_MainWindow(object):
         self.buttonGroupGender.addButton(self.malePatient)
         self.malePatient.setObjectName(u"malePatient")
         self.malePatient.setAutoFillBackground(False)
+        self.malePatient.setStyleSheet(u"color: black;")
 
         self.horizontalLayout_4.addWidget(self.malePatient)
 
@@ -907,6 +915,8 @@ class Ui_MainWindow(object):
         self.ethnicityPatient.addItem("")
         self.ethnicityPatient.addItem("")
         self.ethnicityPatient.setObjectName(u"ethnicityPatient")
+        sizePolicy1.setHeightForWidth(self.ethnicityPatient.sizePolicy().hasHeightForWidth())
+        self.ethnicityPatient.setSizePolicy(sizePolicy1)
         self.ethnicityPatient.setAutoFillBackground(True)
 
         self.gridLayout_8.addWidget(self.ethnicityPatient, 7, 4, 1, 1)
@@ -937,8 +947,8 @@ class Ui_MainWindow(object):
 
         self.sleepPatient = QDoubleSpinBox(self.scrollAreaWidgetPatient)
         self.sleepPatient.setObjectName(u"sleepPatient")
-        sizePolicy3.setHeightForWidth(self.sleepPatient.sizePolicy().hasHeightForWidth())
-        self.sleepPatient.setSizePolicy(sizePolicy3)
+        sizePolicy1.setHeightForWidth(self.sleepPatient.sizePolicy().hasHeightForWidth())
+        self.sleepPatient.setSizePolicy(sizePolicy1)
         self.sleepPatient.setAutoFillBackground(True)
         self.sleepPatient.setMinimum(4.000000000000000)
         self.sleepPatient.setMaximum(10.000000000000000)
@@ -947,8 +957,8 @@ class Ui_MainWindow(object):
 
         self.bmiPatient = QDoubleSpinBox(self.scrollAreaWidgetPatient)
         self.bmiPatient.setObjectName(u"bmiPatient")
-        sizePolicy3.setHeightForWidth(self.bmiPatient.sizePolicy().hasHeightForWidth())
-        self.bmiPatient.setSizePolicy(sizePolicy3)
+        sizePolicy1.setHeightForWidth(self.bmiPatient.sizePolicy().hasHeightForWidth())
+        self.bmiPatient.setSizePolicy(sizePolicy1)
         self.bmiPatient.setAutoFillBackground(True)
         self.bmiPatient.setMinimum(15.000000000000000)
         self.bmiPatient.setMaximum(30.000000000000000)
@@ -965,8 +975,8 @@ class Ui_MainWindow(object):
 
         self.dietPatient = QDoubleSpinBox(self.scrollAreaWidgetPatient)
         self.dietPatient.setObjectName(u"dietPatient")
-        sizePolicy3.setHeightForWidth(self.dietPatient.sizePolicy().hasHeightForWidth())
-        self.dietPatient.setSizePolicy(sizePolicy3)
+        sizePolicy1.setHeightForWidth(self.dietPatient.sizePolicy().hasHeightForWidth())
+        self.dietPatient.setSizePolicy(sizePolicy1)
         self.dietPatient.setAutoFillBackground(True)
         self.dietPatient.setMinimum(0.010000000000000)
         self.dietPatient.setMaximum(10.000000000000000)
@@ -983,8 +993,8 @@ class Ui_MainWindow(object):
 
         self.agePatient = QSpinBox(self.scrollAreaWidgetPatient)
         self.agePatient.setObjectName(u"agePatient")
-        sizePolicy3.setHeightForWidth(self.agePatient.sizePolicy().hasHeightForWidth())
-        self.agePatient.setSizePolicy(sizePolicy3)
+        sizePolicy1.setHeightForWidth(self.agePatient.sizePolicy().hasHeightForWidth())
+        self.agePatient.setSizePolicy(sizePolicy1)
         self.agePatient.setAutoFillBackground(True)
         self.agePatient.setMinimum(60)
         self.agePatient.setMaximum(90)
