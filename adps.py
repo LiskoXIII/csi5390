@@ -7,7 +7,8 @@ from patient import Patient
 from dataset import EducationLevel, Ethnicity
 from ui.ui_adps import Ui_MainWindow
 
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QApplication, QMainWindow, QProgressDialog
+from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
 
 
@@ -147,8 +148,18 @@ class ADPS(QMainWindow, Ui_MainWindow):
             self.results_button.setStyleSheet("color: green;")
 
     def goto_result(self):
-        self.patient.result = make_prediction(self.patient.data.to_dataframe())
-        analyze(self.patient.data.to_dataframe(), self.patient.result)
+        try:
+            progress = QProgressDialog("Making prediction...", "Cancel", 0, 4, self)
+            progress.setWindowModality(Qt.WindowModality.WindowModal)
+            progress.setAutoClose(True)
+
+            self.patient.result = make_prediction(self.patient.data.to_dataframe())
+            progress.setValue(1)
+            analyze(self.patient.data.to_dataframe(), self.patient.result, progress)
+        except Exception as e:
+            self.statusbar.showMessage(f"ERROR: {e}")
+            return
+        
 
         if self.patient.result == 1:
             self.label_diagnosis.setText("Positive for Alzheimer's Disease")

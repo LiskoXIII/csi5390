@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 import pandas
 import seaborn as sns
 import pandas as pd
+from PySide6.QtWidgets import QProgressDialog
 
 
-def analyze(patient_df, prediction_result):
+def analyze(patient_df, prediction_result, progress: QProgressDialog):
     df = pd.read_csv(os.path.join("data","alzheimers_disease_data.csv"))
     patient_features = patient_df
 
@@ -49,3 +50,7 @@ def analyze(patient_df, prediction_result):
         plt.tight_layout()
         plt.savefig(f'plot_{feature}.png')
         plt.close()
+
+        if progress.wasCanceled():
+            raise Exception("Analysis cancelled")
+        progress.setValue(progress.value() + 1)
