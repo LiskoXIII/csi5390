@@ -47,6 +47,7 @@ class Ui_MainWindow(object):
         self.verticalLayoutMain.setContentsMargins(0, 0, 0, 0)
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
+        self.widget.setMaximumSize(QSize(16777215, 60))
         self.widget.setStyleSheet(u"#widget { background-color: rgb(176, 125, 180);\n"
 " }")
         self.horizontalLayout_5 = QHBoxLayout(self.widget)
@@ -63,6 +64,19 @@ class Ui_MainWindow(object):
         self.label.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.label)
+
+        self.horizontalSpacer_17 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_17)
+
+        self.labelPatientID = QLabel(self.widget)
+        self.labelPatientID.setObjectName(u"labelPatientID")
+        font = QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        self.labelPatientID.setFont(font)
+
+        self.horizontalLayout_5.addWidget(self.labelPatientID)
 
         self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -127,10 +141,10 @@ class Ui_MainWindow(object):
         self.loginTitle = QLabel(self.widgetLogin)
         self.loginTitle.setObjectName(u"loginTitle")
         self.loginTitle.setMinimumSize(QSize(151, 71))
-        font = QFont()
-        font.setPointSize(24)
-        font.setBold(True)
-        self.loginTitle.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(24)
+        font1.setBold(True)
+        self.loginTitle.setFont(font1)
         self.loginTitle.setTextFormat(Qt.TextFormat.AutoText)
         self.loginTitle.setScaledContents(True)
         self.loginTitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -175,20 +189,17 @@ class Ui_MainWindow(object):
 
         self.cognitive_button = QPushButton(self.frame)
         self.cognitive_button.setObjectName(u"cognitive_button")
-        font1 = QFont()
-        font1.setPointSize(10)
-        font1.setBold(True)
-        font1.setUnderline(False)
-        self.cognitive_button.setFont(font1)
+        font2 = QFont()
+        font2.setPointSize(10)
+        font2.setBold(True)
+        font2.setUnderline(False)
+        self.cognitive_button.setFont(font2)
 
         self.gridLayout_2.addWidget(self.cognitive_button, 2, 0, 1, 1)
 
         self.cognitive_status = QLabel(self.frame)
         self.cognitive_status.setObjectName(u"cognitive_status")
-        font2 = QFont()
-        font2.setPointSize(12)
-        font2.setBold(True)
-        self.cognitive_status.setFont(font2)
+        self.cognitive_status.setFont(font)
         self.cognitive_status.setStyleSheet(u"color: red;")
         self.cognitive_status.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
@@ -215,7 +226,7 @@ class Ui_MainWindow(object):
 
         self.genetic_status = QLabel(self.frame_2)
         self.genetic_status.setObjectName(u"genetic_status")
-        self.genetic_status.setFont(font2)
+        self.genetic_status.setFont(font)
         self.genetic_status.setStyleSheet(u"color: red;")
         self.genetic_status.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
@@ -223,7 +234,7 @@ class Ui_MainWindow(object):
 
         self.genetic_button = QPushButton(self.frame_2)
         self.genetic_button.setObjectName(u"genetic_button")
-        self.genetic_button.setFont(font1)
+        self.genetic_button.setFont(font2)
 
         self.gridLayout_3.addWidget(self.genetic_button, 2, 0, 1, 1)
 
@@ -249,7 +260,7 @@ class Ui_MainWindow(object):
 
         self.patient_status = QLabel(self.frame_3)
         self.patient_status.setObjectName(u"patient_status")
-        self.patient_status.setFont(font2)
+        self.patient_status.setFont(font)
         self.patient_status.setStyleSheet(u"color: red;")
         self.patient_status.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
@@ -257,7 +268,7 @@ class Ui_MainWindow(object):
 
         self.patient_button = QPushButton(self.frame_3)
         self.patient_button.setObjectName(u"patient_button")
-        self.patient_button.setFont(font1)
+        self.patient_button.setFont(font2)
 
         self.gridLayout_4.addWidget(self.patient_button, 2, 0, 1, 1)
 
@@ -281,7 +292,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.results_button = QPushButton(self.frame_4)
         self.results_button.setObjectName(u"results_button")
-        self.results_button.setFont(font1)
+        self.results_button.setFont(font2)
         self.results_button.setStyleSheet(u"color: red;")
 
         self.verticalLayout.addWidget(self.results_button)
@@ -311,7 +322,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(15)
         sizePolicy.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
         self.label_4.setSizePolicy(sizePolicy)
-        self.label_4.setFont(font)
+        self.label_4.setFont(font1)
         self.label_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_2.addWidget(self.label_4)
@@ -534,269 +545,60 @@ class Ui_MainWindow(object):
 "}")
         self.verticalLayout_5 = QVBoxLayout(self.widgetResult)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.widgetClinical = QWidget(self.widgetResult)
-        self.widgetClinical.setObjectName(u"widgetClinical")
-        self.widgetClinical.setEnabled(False)
-        self.widgetClinical.setStyleSheet(u"#widgetClinical {\n"
-"	background-color: rgb(176, 125, 180);\\n\n"
-"}")
-        self.verticalLayout_3 = QVBoxLayout(self.widgetClinical)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.label_4Clinical = QLabel(self.widgetClinical)
-        self.label_4Clinical.setObjectName(u"label_4Clinical")
-        sizePolicy.setHeightForWidth(self.label_4Clinical.sizePolicy().hasHeightForWidth())
-        self.label_4Clinical.setSizePolicy(sizePolicy)
-        self.label_4Clinical.setFont(font)
-        self.label_4Clinical.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_results = QLabel(self.widgetResult)
+        self.label_results.setObjectName(u"label_results")
+        sizePolicy.setHeightForWidth(self.label_results.sizePolicy().hasHeightForWidth())
+        self.label_results.setSizePolicy(sizePolicy)
+        self.label_results.setFont(font1)
+        self.label_results.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.verticalLayout_3.addWidget(self.label_4Clinical)
+        self.verticalLayout_5.addWidget(self.label_results)
 
-        self.scrollAreaClinical = QScrollArea(self.widgetClinical)
-        self.scrollAreaClinical.setObjectName(u"scrollAreaClinical")
-        self.scrollAreaClinical.setStyleSheet(u"")
-        self.scrollAreaClinical.setWidgetResizable(True)
-        self.scrollAreaWidgetClinical = QWidget()
-        self.scrollAreaWidgetClinical.setObjectName(u"scrollAreaWidgetClinical")
-        self.scrollAreaWidgetClinical.setGeometry(QRect(0, 0, 1233, 684))
-        self.scrollAreaWidgetClinical.setStyleSheet(u"#scrollAreaWidgetClinical {\n"
-"background-color: rgb(255, 255, 255);\n"
-"}")
-        self.gridLayout_7 = QGridLayout(self.scrollAreaWidgetClinical)
-        self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.label_8Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_8Clinical.setObjectName(u"label_8Clinical")
-        sizePolicy2.setHeightForWidth(self.label_8Clinical.sizePolicy().hasHeightForWidth())
-        self.label_8Clinical.setSizePolicy(sizePolicy2)
-        self.label_8Clinical.setMinimumSize(QSize(0, 50))
+        self.label_diagnosis = QLabel(self.widgetResult)
+        self.label_diagnosis.setObjectName(u"label_diagnosis")
+        font3 = QFont()
+        font3.setPointSize(14)
+        font3.setBold(True)
+        self.label_diagnosis.setFont(font3)
+        self.label_diagnosis.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout_7.addWidget(self.label_8Clinical, 4, 1, 1, 1)
+        self.verticalLayout_5.addWidget(self.label_diagnosis)
 
-        self.headInjuryClinical = QCheckBox(self.scrollAreaWidgetClinical)
-        self.headInjuryClinical.setObjectName(u"headInjuryClinical")
-        self.headInjuryClinical.setAutoFillBackground(False)
+        self.scrollAreaResult = QScrollArea(self.widgetResult)
+        self.scrollAreaResult.setObjectName(u"scrollAreaResult")
+        self.scrollAreaResult.setWidgetResizable(True)
+        self.scrollAreaWidgetContentsResult = QWidget()
+        self.scrollAreaWidgetContentsResult.setObjectName(u"scrollAreaWidgetContentsResult")
+        self.scrollAreaWidgetContentsResult.setGeometry(QRect(0, 0, 1251, 78))
+        self.scrollAreaWidgetContentsResult.setStyleSheet(u"background-color: rgb(176, 125, 180)")
+        self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContentsResult)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.labelMMSE = QLabel(self.scrollAreaWidgetContentsResult)
+        self.labelMMSE.setObjectName(u"labelMMSE")
+        self.labelMMSE.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout_7.addWidget(self.headInjuryClinical, 4, 3, 1, 1)
+        self.verticalLayout_6.addWidget(self.labelMMSE)
 
-        self.diabetesClinical = QCheckBox(self.scrollAreaWidgetClinical)
-        self.diabetesClinical.setObjectName(u"diabetesClinical")
-        self.diabetesClinical.setAutoFillBackground(False)
+        self.labelADL = QLabel(self.scrollAreaWidgetContentsResult)
+        self.labelADL.setObjectName(u"labelADL")
+        self.labelADL.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout_7.addWidget(self.diabetesClinical, 2, 3, 1, 1)
+        self.verticalLayout_6.addWidget(self.labelADL)
 
-        self.label_13Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_13Clinical.setObjectName(u"label_13Clinical")
-        sizePolicy2.setHeightForWidth(self.label_13Clinical.sizePolicy().hasHeightForWidth())
-        self.label_13Clinical.setSizePolicy(sizePolicy2)
-        self.label_13Clinical.setMinimumSize(QSize(0, 50))
+        self.labelFA = QLabel(self.scrollAreaWidgetContentsResult)
+        self.labelFA.setObjectName(u"labelFA")
+        self.labelFA.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout_7.addWidget(self.label_13Clinical, 9, 1, 1, 1)
+        self.verticalLayout_6.addWidget(self.labelFA)
 
-        self.label_9Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_9Clinical.setObjectName(u"label_9Clinical")
-        sizePolicy2.setHeightForWidth(self.label_9Clinical.sizePolicy().hasHeightForWidth())
-        self.label_9Clinical.setSizePolicy(sizePolicy2)
-        self.label_9Clinical.setMinimumSize(QSize(0, 50))
+        self.scrollAreaResult.setWidget(self.scrollAreaWidgetContentsResult)
 
-        self.gridLayout_7.addWidget(self.label_9Clinical, 5, 1, 1, 1)
+        self.verticalLayout_5.addWidget(self.scrollAreaResult)
 
-        self.horizontalSpacer_4Clinical = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_7.addItem(self.horizontalSpacer_4Clinical, 4, 4, 1, 1)
+        self.verticalLayoutMain.addWidget(self.widgetResult)
 
-        self.depressionClinical = QCheckBox(self.scrollAreaWidgetClinical)
-        self.depressionClinical.setObjectName(u"depressionClinical")
-        self.depressionClinical.setAutoFillBackground(False)
-
-        self.gridLayout_7.addWidget(self.depressionClinical, 3, 3, 1, 1)
-
-        self.cholTriClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
-        self.cholTriClinical.setObjectName(u"cholTriClinical")
-        sizePolicy1.setHeightForWidth(self.cholTriClinical.sizePolicy().hasHeightForWidth())
-        self.cholTriClinical.setSizePolicy(sizePolicy1)
-        self.cholTriClinical.setAutoFillBackground(True)
-        self.cholTriClinical.setMinimum(50.399999999999999)
-        self.cholTriClinical.setMaximum(400.000000000000000)
-
-        self.gridLayout_7.addWidget(self.cholTriClinical, 11, 3, 1, 1)
-
-        self.label_16Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_16Clinical.setObjectName(u"label_16Clinical")
-        sizePolicy2.setHeightForWidth(self.label_16Clinical.sizePolicy().hasHeightForWidth())
-        self.label_16Clinical.setSizePolicy(sizePolicy2)
-        self.label_16Clinical.setMinimumSize(QSize(0, 50))
-
-        self.gridLayout_7.addWidget(self.label_16Clinical, 11, 1, 1, 1)
-
-        self.label_12Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_12Clinical.setObjectName(u"label_12Clinical")
-        sizePolicy2.setHeightForWidth(self.label_12Clinical.sizePolicy().hasHeightForWidth())
-        self.label_12Clinical.setSizePolicy(sizePolicy2)
-        self.label_12Clinical.setMinimumSize(QSize(0, 50))
-
-        self.gridLayout_7.addWidget(self.label_12Clinical, 8, 1, 1, 1)
-
-        self.label_5Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_5Clinical.setObjectName(u"label_5Clinical")
-        sizePolicy2.setHeightForWidth(self.label_5Clinical.sizePolicy().hasHeightForWidth())
-        self.label_5Clinical.setSizePolicy(sizePolicy2)
-        self.label_5Clinical.setMinimumSize(QSize(0, 50))
-
-        self.gridLayout_7.addWidget(self.label_5Clinical, 1, 1, 1, 1)
-
-        self.label_15Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_15Clinical.setObjectName(u"label_15Clinical")
-        sizePolicy2.setHeightForWidth(self.label_15Clinical.sizePolicy().hasHeightForWidth())
-        self.label_15Clinical.setSizePolicy(sizePolicy2)
-        self.label_15Clinical.setMinimumSize(QSize(0, 50))
-
-        self.gridLayout_7.addWidget(self.label_15Clinical, 10, 1, 1, 1)
-
-        self.label_10Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_10Clinical.setObjectName(u"label_10Clinical")
-        sizePolicy2.setHeightForWidth(self.label_10Clinical.sizePolicy().hasHeightForWidth())
-        self.label_10Clinical.setSizePolicy(sizePolicy2)
-        self.label_10Clinical.setMinimumSize(QSize(0, 50))
-
-        self.gridLayout_7.addWidget(self.label_10Clinical, 6, 1, 1, 1)
-
-        self.famAlzClinical = QCheckBox(self.scrollAreaWidgetClinical)
-        self.famAlzClinical.setObjectName(u"famAlzClinical")
-        self.famAlzClinical.setAutoFillBackground(False)
-
-        self.gridLayout_7.addWidget(self.famAlzClinical, 0, 3, 1, 1)
-
-        self.label_3Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_3Clinical.setObjectName(u"label_3Clinical")
-        sizePolicy2.setHeightForWidth(self.label_3Clinical.sizePolicy().hasHeightForWidth())
-        self.label_3Clinical.setSizePolicy(sizePolicy2)
-        self.label_3Clinical.setMinimumSize(QSize(0, 50))
-
-        self.gridLayout_7.addWidget(self.label_3Clinical, 0, 1, 1, 1)
-
-        self.cholHDLClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
-        self.cholHDLClinical.setObjectName(u"cholHDLClinical")
-        sizePolicy1.setHeightForWidth(self.cholHDLClinical.sizePolicy().hasHeightForWidth())
-        self.cholHDLClinical.setSizePolicy(sizePolicy1)
-        self.cholHDLClinical.setAutoFillBackground(True)
-        self.cholHDLClinical.setMinimum(20.000000000000000)
-        self.cholHDLClinical.setMaximum(100.000000000000000)
-
-        self.gridLayout_7.addWidget(self.cholHDLClinical, 10, 3, 1, 1)
-
-        self.label_7Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_7Clinical.setObjectName(u"label_7Clinical")
-        sizePolicy2.setHeightForWidth(self.label_7Clinical.sizePolicy().hasHeightForWidth())
-        self.label_7Clinical.setSizePolicy(sizePolicy2)
-        self.label_7Clinical.setMinimumSize(QSize(0, 50))
-
-        self.gridLayout_7.addWidget(self.label_7Clinical, 3, 1, 1, 1)
-
-        self.hypertensionClinical = QCheckBox(self.scrollAreaWidgetClinical)
-        self.hypertensionClinical.setObjectName(u"hypertensionClinical")
-        self.hypertensionClinical.setAutoFillBackground(False)
-
-        self.gridLayout_7.addWidget(self.hypertensionClinical, 5, 3, 1, 1)
-
-        self.cholTotalClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
-        self.cholTotalClinical.setObjectName(u"cholTotalClinical")
-        sizePolicy1.setHeightForWidth(self.cholTotalClinical.sizePolicy().hasHeightForWidth())
-        self.cholTotalClinical.setSizePolicy(sizePolicy1)
-        self.cholTotalClinical.setAutoFillBackground(True)
-        self.cholTotalClinical.setMinimum(150.000000000000000)
-        self.cholTotalClinical.setMaximum(300.000000000000000)
-
-        self.gridLayout_7.addWidget(self.cholTotalClinical, 8, 3, 1, 1)
-
-        self.cholLDLClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
-        self.cholLDLClinical.setObjectName(u"cholLDLClinical")
-        sizePolicy1.setHeightForWidth(self.cholLDLClinical.sizePolicy().hasHeightForWidth())
-        self.cholLDLClinical.setSizePolicy(sizePolicy1)
-        self.cholLDLClinical.setAutoFillBackground(True)
-        self.cholLDLClinical.setMinimum(50.200000000000003)
-        self.cholLDLClinical.setMaximum(200.000000000000000)
-
-        self.gridLayout_7.addWidget(self.cholLDLClinical, 9, 3, 1, 1)
-
-        self.label_11Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_11Clinical.setObjectName(u"label_11Clinical")
-        sizePolicy2.setHeightForWidth(self.label_11Clinical.sizePolicy().hasHeightForWidth())
-        self.label_11Clinical.setSizePolicy(sizePolicy2)
-        self.label_11Clinical.setMinimumSize(QSize(0, 50))
-
-        self.gridLayout_7.addWidget(self.label_11Clinical, 7, 1, 1, 1)
-
-        self.sysBPClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
-        self.sysBPClinical.setObjectName(u"sysBPClinical")
-        sizePolicy1.setHeightForWidth(self.sysBPClinical.sizePolicy().hasHeightForWidth())
-        self.sysBPClinical.setSizePolicy(sizePolicy1)
-        self.sysBPClinical.setAutoFillBackground(True)
-        self.sysBPClinical.setMinimum(90.000000000000000)
-        self.sysBPClinical.setMaximum(179.000000000000000)
-
-        self.gridLayout_7.addWidget(self.sysBPClinical, 6, 3, 1, 1)
-
-        self.label_6Clinical = QLabel(self.scrollAreaWidgetClinical)
-        self.label_6Clinical.setObjectName(u"label_6Clinical")
-        sizePolicy2.setHeightForWidth(self.label_6Clinical.sizePolicy().hasHeightForWidth())
-        self.label_6Clinical.setSizePolicy(sizePolicy2)
-        self.label_6Clinical.setMinimumSize(QSize(0, 50))
-
-        self.gridLayout_7.addWidget(self.label_6Clinical, 2, 1, 1, 1)
-
-        self.dasBPClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
-        self.dasBPClinical.setObjectName(u"dasBPClinical")
-        sizePolicy1.setHeightForWidth(self.dasBPClinical.sizePolicy().hasHeightForWidth())
-        self.dasBPClinical.setSizePolicy(sizePolicy1)
-        self.dasBPClinical.setAutoFillBackground(True)
-        self.dasBPClinical.setMinimum(60.000000000000000)
-        self.dasBPClinical.setMaximum(119.000000000000000)
-
-        self.gridLayout_7.addWidget(self.dasBPClinical, 7, 3, 1, 1)
-
-        self.horizontalSpacer_3Clinical = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_7.addItem(self.horizontalSpacer_3Clinical, 4, 0, 1, 1)
-
-        self.cardiovascularDiseaseClinical = QCheckBox(self.scrollAreaWidgetClinical)
-        self.cardiovascularDiseaseClinical.setObjectName(u"cardiovascularDiseaseClinical")
-        self.cardiovascularDiseaseClinical.setAutoFillBackground(False)
-
-        self.gridLayout_7.addWidget(self.cardiovascularDiseaseClinical, 1, 3, 1, 1)
-
-        self.horizontalSpacer_5Clinical = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_7.addItem(self.horizontalSpacer_5Clinical, 4, 2, 1, 1)
-
-        self.scrollAreaClinical.setWidget(self.scrollAreaWidgetClinical)
-
-        self.verticalLayout_3.addWidget(self.scrollAreaClinical)
-
-        self.widgetsubClinical = QWidget(self.widgetClinical)
-        self.widgetsubClinical.setObjectName(u"widgetsubClinical")
-        self.horizontalLayout_2 = QHBoxLayout(self.widgetsubClinical)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalSpacer_2Clinical = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_2Clinical)
-
-        self.submitButtonClinical = QPushButton(self.widgetsubClinical)
-        self.submitButtonClinical.setObjectName(u"submitButtonClinical")
-        self.submitButtonClinical.setMaximumSize(QSize(300, 16777215))
-        self.submitButtonClinical.setStyleSheet(u"background-color: rgb(85,255,0);")
-
-        self.horizontalLayout_2.addWidget(self.submitButtonClinical)
-
-        self.horizontalSpacerClinical = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacerClinical)
-
-
-        self.verticalLayout_3.addWidget(self.widgetsubClinical)
-
-
-        self.verticalLayout_5.addWidget(self.widgetClinical)
-
-        self.widgetPatient = QWidget(self.widgetResult)
+        self.widgetPatient = QWidget(self.centralwidget)
         self.widgetPatient.setObjectName(u"widgetPatient")
         self.widgetPatient.setEnabled(False)
         self.widgetPatient.setStyleSheet(u"#widgetPatient {\n"
@@ -808,7 +610,7 @@ class Ui_MainWindow(object):
         self.label_4Patient.setObjectName(u"label_4Patient")
         sizePolicy.setHeightForWidth(self.label_4Patient.sizePolicy().hasHeightForWidth())
         self.label_4Patient.setSizePolicy(sizePolicy)
-        self.label_4Patient.setFont(font)
+        self.label_4Patient.setFont(font1)
         self.label_4Patient.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_4.addWidget(self.label_4Patient)
@@ -819,7 +621,7 @@ class Ui_MainWindow(object):
         self.scrollAreaPatient.setWidgetResizable(True)
         self.scrollAreaWidgetPatient = QWidget()
         self.scrollAreaWidgetPatient.setObjectName(u"scrollAreaWidgetPatient")
-        self.scrollAreaWidgetPatient.setGeometry(QRect(0, 0, 1233, 578))
+        self.scrollAreaWidgetPatient.setGeometry(QRect(0, 0, 1251, 578))
         self.scrollAreaWidgetPatient.setStyleSheet(u"#scrollAreaWidgetPatient {\n"
 "background-color: rgb(255, 255, 255);\n"
 "}")
@@ -1072,60 +874,269 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.addWidget(self.widgetSubPatient)
 
 
-        self.verticalLayout_5.addWidget(self.widgetPatient)
+        self.verticalLayoutMain.addWidget(self.widgetPatient)
 
-        self.label_results = QLabel(self.widgetResult)
-        self.label_results.setObjectName(u"label_results")
-        sizePolicy.setHeightForWidth(self.label_results.sizePolicy().hasHeightForWidth())
-        self.label_results.setSizePolicy(sizePolicy)
-        self.label_results.setFont(font)
-        self.label_results.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.widgetClinical = QWidget(self.centralwidget)
+        self.widgetClinical.setObjectName(u"widgetClinical")
+        self.widgetClinical.setEnabled(False)
+        self.widgetClinical.setStyleSheet(u"#widgetClinical {\n"
+"	background-color: rgb(176, 125, 180);\\n\n"
+"}")
+        self.verticalLayout_3 = QVBoxLayout(self.widgetClinical)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.label_4Clinical = QLabel(self.widgetClinical)
+        self.label_4Clinical.setObjectName(u"label_4Clinical")
+        sizePolicy.setHeightForWidth(self.label_4Clinical.sizePolicy().hasHeightForWidth())
+        self.label_4Clinical.setSizePolicy(sizePolicy)
+        self.label_4Clinical.setFont(font1)
+        self.label_4Clinical.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.verticalLayout_5.addWidget(self.label_results)
+        self.verticalLayout_3.addWidget(self.label_4Clinical)
 
-        self.label_diagnosis = QLabel(self.widgetResult)
-        self.label_diagnosis.setObjectName(u"label_diagnosis")
-        font3 = QFont()
-        font3.setPointSize(14)
-        font3.setBold(True)
-        self.label_diagnosis.setFont(font3)
-        self.label_diagnosis.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.scrollAreaClinical = QScrollArea(self.widgetClinical)
+        self.scrollAreaClinical.setObjectName(u"scrollAreaClinical")
+        self.scrollAreaClinical.setStyleSheet(u"")
+        self.scrollAreaClinical.setWidgetResizable(True)
+        self.scrollAreaWidgetClinical = QWidget()
+        self.scrollAreaWidgetClinical.setObjectName(u"scrollAreaWidgetClinical")
+        self.scrollAreaWidgetClinical.setGeometry(QRect(0, 0, 1251, 684))
+        self.scrollAreaWidgetClinical.setStyleSheet(u"#scrollAreaWidgetClinical {\n"
+"background-color: rgb(255, 255, 255);\n"
+"}")
+        self.gridLayout_7 = QGridLayout(self.scrollAreaWidgetClinical)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.label_8Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_8Clinical.setObjectName(u"label_8Clinical")
+        sizePolicy2.setHeightForWidth(self.label_8Clinical.sizePolicy().hasHeightForWidth())
+        self.label_8Clinical.setSizePolicy(sizePolicy2)
+        self.label_8Clinical.setMinimumSize(QSize(0, 50))
 
-        self.verticalLayout_5.addWidget(self.label_diagnosis)
+        self.gridLayout_7.addWidget(self.label_8Clinical, 4, 1, 1, 1)
 
-        self.scrollAreaResult = QScrollArea(self.widgetResult)
-        self.scrollAreaResult.setObjectName(u"scrollAreaResult")
-        self.scrollAreaResult.setWidgetResizable(True)
-        self.scrollAreaWidgetContentsResult = QWidget()
-        self.scrollAreaWidgetContentsResult.setObjectName(u"scrollAreaWidgetContentsResult")
-        self.scrollAreaWidgetContentsResult.setGeometry(QRect(0, 0, 1251, 78))
-        self.scrollAreaWidgetContentsResult.setStyleSheet(u"background-color: rgb(176, 125, 180)")
-        self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContentsResult)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.labelMMSE = QLabel(self.scrollAreaWidgetContentsResult)
-        self.labelMMSE.setObjectName(u"labelMMSE")
-        self.labelMMSE.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.headInjuryClinical = QCheckBox(self.scrollAreaWidgetClinical)
+        self.headInjuryClinical.setObjectName(u"headInjuryClinical")
+        self.headInjuryClinical.setAutoFillBackground(False)
 
-        self.verticalLayout_6.addWidget(self.labelMMSE)
+        self.gridLayout_7.addWidget(self.headInjuryClinical, 4, 3, 1, 1)
 
-        self.labelADL = QLabel(self.scrollAreaWidgetContentsResult)
-        self.labelADL.setObjectName(u"labelADL")
-        self.labelADL.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.diabetesClinical = QCheckBox(self.scrollAreaWidgetClinical)
+        self.diabetesClinical.setObjectName(u"diabetesClinical")
+        self.diabetesClinical.setAutoFillBackground(False)
 
-        self.verticalLayout_6.addWidget(self.labelADL)
+        self.gridLayout_7.addWidget(self.diabetesClinical, 2, 3, 1, 1)
 
-        self.labelFA = QLabel(self.scrollAreaWidgetContentsResult)
-        self.labelFA.setObjectName(u"labelFA")
-        self.labelFA.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_13Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_13Clinical.setObjectName(u"label_13Clinical")
+        sizePolicy2.setHeightForWidth(self.label_13Clinical.sizePolicy().hasHeightForWidth())
+        self.label_13Clinical.setSizePolicy(sizePolicy2)
+        self.label_13Clinical.setMinimumSize(QSize(0, 50))
 
-        self.verticalLayout_6.addWidget(self.labelFA)
+        self.gridLayout_7.addWidget(self.label_13Clinical, 9, 1, 1, 1)
 
-        self.scrollAreaResult.setWidget(self.scrollAreaWidgetContentsResult)
+        self.label_9Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_9Clinical.setObjectName(u"label_9Clinical")
+        sizePolicy2.setHeightForWidth(self.label_9Clinical.sizePolicy().hasHeightForWidth())
+        self.label_9Clinical.setSizePolicy(sizePolicy2)
+        self.label_9Clinical.setMinimumSize(QSize(0, 50))
 
-        self.verticalLayout_5.addWidget(self.scrollAreaResult)
+        self.gridLayout_7.addWidget(self.label_9Clinical, 5, 1, 1, 1)
+
+        self.horizontalSpacer_4Clinical = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_7.addItem(self.horizontalSpacer_4Clinical, 4, 4, 1, 1)
+
+        self.depressionClinical = QCheckBox(self.scrollAreaWidgetClinical)
+        self.depressionClinical.setObjectName(u"depressionClinical")
+        self.depressionClinical.setAutoFillBackground(False)
+
+        self.gridLayout_7.addWidget(self.depressionClinical, 3, 3, 1, 1)
+
+        self.cholTriClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
+        self.cholTriClinical.setObjectName(u"cholTriClinical")
+        sizePolicy1.setHeightForWidth(self.cholTriClinical.sizePolicy().hasHeightForWidth())
+        self.cholTriClinical.setSizePolicy(sizePolicy1)
+        self.cholTriClinical.setAutoFillBackground(True)
+        self.cholTriClinical.setMinimum(50.399999999999999)
+        self.cholTriClinical.setMaximum(400.000000000000000)
+
+        self.gridLayout_7.addWidget(self.cholTriClinical, 11, 3, 1, 1)
+
+        self.label_16Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_16Clinical.setObjectName(u"label_16Clinical")
+        sizePolicy2.setHeightForWidth(self.label_16Clinical.sizePolicy().hasHeightForWidth())
+        self.label_16Clinical.setSizePolicy(sizePolicy2)
+        self.label_16Clinical.setMinimumSize(QSize(0, 50))
+
+        self.gridLayout_7.addWidget(self.label_16Clinical, 11, 1, 1, 1)
+
+        self.label_12Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_12Clinical.setObjectName(u"label_12Clinical")
+        sizePolicy2.setHeightForWidth(self.label_12Clinical.sizePolicy().hasHeightForWidth())
+        self.label_12Clinical.setSizePolicy(sizePolicy2)
+        self.label_12Clinical.setMinimumSize(QSize(0, 50))
+
+        self.gridLayout_7.addWidget(self.label_12Clinical, 8, 1, 1, 1)
+
+        self.label_5Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_5Clinical.setObjectName(u"label_5Clinical")
+        sizePolicy2.setHeightForWidth(self.label_5Clinical.sizePolicy().hasHeightForWidth())
+        self.label_5Clinical.setSizePolicy(sizePolicy2)
+        self.label_5Clinical.setMinimumSize(QSize(0, 50))
+
+        self.gridLayout_7.addWidget(self.label_5Clinical, 1, 1, 1, 1)
+
+        self.label_15Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_15Clinical.setObjectName(u"label_15Clinical")
+        sizePolicy2.setHeightForWidth(self.label_15Clinical.sizePolicy().hasHeightForWidth())
+        self.label_15Clinical.setSizePolicy(sizePolicy2)
+        self.label_15Clinical.setMinimumSize(QSize(0, 50))
+
+        self.gridLayout_7.addWidget(self.label_15Clinical, 10, 1, 1, 1)
+
+        self.label_10Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_10Clinical.setObjectName(u"label_10Clinical")
+        sizePolicy2.setHeightForWidth(self.label_10Clinical.sizePolicy().hasHeightForWidth())
+        self.label_10Clinical.setSizePolicy(sizePolicy2)
+        self.label_10Clinical.setMinimumSize(QSize(0, 50))
+
+        self.gridLayout_7.addWidget(self.label_10Clinical, 6, 1, 1, 1)
+
+        self.famAlzClinical = QCheckBox(self.scrollAreaWidgetClinical)
+        self.famAlzClinical.setObjectName(u"famAlzClinical")
+        self.famAlzClinical.setAutoFillBackground(False)
+
+        self.gridLayout_7.addWidget(self.famAlzClinical, 0, 3, 1, 1)
+
+        self.label_3Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_3Clinical.setObjectName(u"label_3Clinical")
+        sizePolicy2.setHeightForWidth(self.label_3Clinical.sizePolicy().hasHeightForWidth())
+        self.label_3Clinical.setSizePolicy(sizePolicy2)
+        self.label_3Clinical.setMinimumSize(QSize(0, 50))
+
+        self.gridLayout_7.addWidget(self.label_3Clinical, 0, 1, 1, 1)
+
+        self.cholHDLClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
+        self.cholHDLClinical.setObjectName(u"cholHDLClinical")
+        sizePolicy1.setHeightForWidth(self.cholHDLClinical.sizePolicy().hasHeightForWidth())
+        self.cholHDLClinical.setSizePolicy(sizePolicy1)
+        self.cholHDLClinical.setAutoFillBackground(True)
+        self.cholHDLClinical.setMinimum(20.000000000000000)
+        self.cholHDLClinical.setMaximum(100.000000000000000)
+
+        self.gridLayout_7.addWidget(self.cholHDLClinical, 10, 3, 1, 1)
+
+        self.label_7Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_7Clinical.setObjectName(u"label_7Clinical")
+        sizePolicy2.setHeightForWidth(self.label_7Clinical.sizePolicy().hasHeightForWidth())
+        self.label_7Clinical.setSizePolicy(sizePolicy2)
+        self.label_7Clinical.setMinimumSize(QSize(0, 50))
+
+        self.gridLayout_7.addWidget(self.label_7Clinical, 3, 1, 1, 1)
+
+        self.hypertensionClinical = QCheckBox(self.scrollAreaWidgetClinical)
+        self.hypertensionClinical.setObjectName(u"hypertensionClinical")
+        self.hypertensionClinical.setAutoFillBackground(False)
+
+        self.gridLayout_7.addWidget(self.hypertensionClinical, 5, 3, 1, 1)
+
+        self.cholTotalClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
+        self.cholTotalClinical.setObjectName(u"cholTotalClinical")
+        sizePolicy1.setHeightForWidth(self.cholTotalClinical.sizePolicy().hasHeightForWidth())
+        self.cholTotalClinical.setSizePolicy(sizePolicy1)
+        self.cholTotalClinical.setAutoFillBackground(True)
+        self.cholTotalClinical.setMinimum(150.000000000000000)
+        self.cholTotalClinical.setMaximum(300.000000000000000)
+
+        self.gridLayout_7.addWidget(self.cholTotalClinical, 8, 3, 1, 1)
+
+        self.cholLDLClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
+        self.cholLDLClinical.setObjectName(u"cholLDLClinical")
+        sizePolicy1.setHeightForWidth(self.cholLDLClinical.sizePolicy().hasHeightForWidth())
+        self.cholLDLClinical.setSizePolicy(sizePolicy1)
+        self.cholLDLClinical.setAutoFillBackground(True)
+        self.cholLDLClinical.setMinimum(50.200000000000003)
+        self.cholLDLClinical.setMaximum(200.000000000000000)
+
+        self.gridLayout_7.addWidget(self.cholLDLClinical, 9, 3, 1, 1)
+
+        self.label_11Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_11Clinical.setObjectName(u"label_11Clinical")
+        sizePolicy2.setHeightForWidth(self.label_11Clinical.sizePolicy().hasHeightForWidth())
+        self.label_11Clinical.setSizePolicy(sizePolicy2)
+        self.label_11Clinical.setMinimumSize(QSize(0, 50))
+
+        self.gridLayout_7.addWidget(self.label_11Clinical, 7, 1, 1, 1)
+
+        self.sysBPClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
+        self.sysBPClinical.setObjectName(u"sysBPClinical")
+        sizePolicy1.setHeightForWidth(self.sysBPClinical.sizePolicy().hasHeightForWidth())
+        self.sysBPClinical.setSizePolicy(sizePolicy1)
+        self.sysBPClinical.setAutoFillBackground(True)
+        self.sysBPClinical.setMinimum(90.000000000000000)
+        self.sysBPClinical.setMaximum(179.000000000000000)
+
+        self.gridLayout_7.addWidget(self.sysBPClinical, 6, 3, 1, 1)
+
+        self.label_6Clinical = QLabel(self.scrollAreaWidgetClinical)
+        self.label_6Clinical.setObjectName(u"label_6Clinical")
+        sizePolicy2.setHeightForWidth(self.label_6Clinical.sizePolicy().hasHeightForWidth())
+        self.label_6Clinical.setSizePolicy(sizePolicy2)
+        self.label_6Clinical.setMinimumSize(QSize(0, 50))
+
+        self.gridLayout_7.addWidget(self.label_6Clinical, 2, 1, 1, 1)
+
+        self.dasBPClinical = QDoubleSpinBox(self.scrollAreaWidgetClinical)
+        self.dasBPClinical.setObjectName(u"dasBPClinical")
+        sizePolicy1.setHeightForWidth(self.dasBPClinical.sizePolicy().hasHeightForWidth())
+        self.dasBPClinical.setSizePolicy(sizePolicy1)
+        self.dasBPClinical.setAutoFillBackground(True)
+        self.dasBPClinical.setMinimum(60.000000000000000)
+        self.dasBPClinical.setMaximum(119.000000000000000)
+
+        self.gridLayout_7.addWidget(self.dasBPClinical, 7, 3, 1, 1)
+
+        self.horizontalSpacer_3Clinical = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_7.addItem(self.horizontalSpacer_3Clinical, 4, 0, 1, 1)
+
+        self.cardiovascularDiseaseClinical = QCheckBox(self.scrollAreaWidgetClinical)
+        self.cardiovascularDiseaseClinical.setObjectName(u"cardiovascularDiseaseClinical")
+        self.cardiovascularDiseaseClinical.setAutoFillBackground(False)
+
+        self.gridLayout_7.addWidget(self.cardiovascularDiseaseClinical, 1, 3, 1, 1)
+
+        self.horizontalSpacer_5Clinical = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_7.addItem(self.horizontalSpacer_5Clinical, 4, 2, 1, 1)
+
+        self.scrollAreaClinical.setWidget(self.scrollAreaWidgetClinical)
+
+        self.verticalLayout_3.addWidget(self.scrollAreaClinical)
+
+        self.widgetsubClinical = QWidget(self.widgetClinical)
+        self.widgetsubClinical.setObjectName(u"widgetsubClinical")
+        self.horizontalLayout_2 = QHBoxLayout(self.widgetsubClinical)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalSpacer_2Clinical = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_2Clinical)
+
+        self.submitButtonClinical = QPushButton(self.widgetsubClinical)
+        self.submitButtonClinical.setObjectName(u"submitButtonClinical")
+        self.submitButtonClinical.setMaximumSize(QSize(300, 16777215))
+        self.submitButtonClinical.setStyleSheet(u"background-color: rgb(85,255,0);")
+
+        self.horizontalLayout_2.addWidget(self.submitButtonClinical)
+
+        self.horizontalSpacerClinical = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacerClinical)
 
 
-        self.verticalLayoutMain.addWidget(self.widgetResult)
+        self.verticalLayout_3.addWidget(self.widgetsubClinical)
+
+
+        self.verticalLayoutMain.addWidget(self.widgetClinical)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -1144,6 +1155,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"ADPS", None))
         self.label.setText("")
+        self.labelPatientID.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.pushButtonBack.setText(QCoreApplication.translate("MainWindow", u"Back to Login", None))
         self.loginPatientID.setInputMask("")
         self.loginPatientID.setText("")
@@ -1179,26 +1191,11 @@ class Ui_MainWindow(object):
         self.confusion.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">MMSE</span></p></body></html>", None))
         self.submitButtonCognitive.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
-        self.label_4Clinical.setText(QCoreApplication.translate("MainWindow", u"Clinical Results", None))
-        self.label_8Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Head Injury</span></p></body></html>", None))
-        self.headInjuryClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
-        self.diabetesClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
-        self.label_13Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Cholesterol LDL</span></p></body></html>", None))
-        self.label_9Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Hypertension</span></p></body></html>", None))
-        self.depressionClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
-        self.label_16Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Cholesterol Triglycerides</span></p></body></html>", None))
-        self.label_12Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Cholesterol Total</span></p></body></html>", None))
-        self.label_5Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Cardiovascular Disease</span></p></body></html>", None))
-        self.label_15Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Cholesterol HDL</span></p></body></html>", None))
-        self.label_10Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Systolic BP</span></p></body></html>", None))
-        self.famAlzClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
-        self.label_3Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Family History of Alzheimer's</span></p></body></html>", None))
-        self.label_7Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Depression</span></p></body></html>", None))
-        self.hypertensionClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
-        self.label_11Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Diastolic BP</span></p></body></html>", None))
-        self.label_6Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Diabetes</span></p></body></html>", None))
-        self.cardiovascularDiseaseClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
-        self.submitButtonClinical.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
+        self.label_results.setText(QCoreApplication.translate("MainWindow", u"Results", None))
+        self.label_diagnosis.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.labelMMSE.setText("")
+        self.labelADL.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.labelFA.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_4Patient.setText(QCoreApplication.translate("MainWindow", u"Patient Survey", None))
         self.educationPatient.setItemText(0, QCoreApplication.translate("MainWindow", u"None", None))
         self.educationPatient.setItemText(1, QCoreApplication.translate("MainWindow", u"High School", None))
@@ -1225,10 +1222,25 @@ class Ui_MainWindow(object):
         self.label_22.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Physical Activity</span></p></body></html>", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Diet Quality</span></p></body></html>", None))
         self.submitButtonPatient.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
-        self.label_results.setText(QCoreApplication.translate("MainWindow", u"Results", None))
-        self.label_diagnosis.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.labelMMSE.setText("")
-        self.labelADL.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.labelFA.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_4Clinical.setText(QCoreApplication.translate("MainWindow", u"Clinical Results", None))
+        self.label_8Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Head Injury</span></p></body></html>", None))
+        self.headInjuryClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.diabetesClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.label_13Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Cholesterol LDL</span></p></body></html>", None))
+        self.label_9Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Hypertension</span></p></body></html>", None))
+        self.depressionClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.label_16Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Cholesterol Triglycerides</span></p></body></html>", None))
+        self.label_12Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Cholesterol Total</span></p></body></html>", None))
+        self.label_5Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Cardiovascular Disease</span></p></body></html>", None))
+        self.label_15Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Cholesterol HDL</span></p></body></html>", None))
+        self.label_10Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Systolic BP</span></p></body></html>", None))
+        self.famAlzClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.label_3Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Family History of Alzheimer's</span></p></body></html>", None))
+        self.label_7Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Depression</span></p></body></html>", None))
+        self.hypertensionClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.label_11Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Diastolic BP</span></p></body></html>", None))
+        self.label_6Clinical.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Diabetes</span></p></body></html>", None))
+        self.cardiovascularDiseaseClinical.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
+        self.submitButtonClinical.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
     # retranslateUi
 

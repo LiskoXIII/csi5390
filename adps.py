@@ -10,6 +10,7 @@ from ui.ui_adps import Ui_MainWindow
 from PySide6.QtWidgets import QApplication, QMainWindow, QProgressDialog
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
+import threading
 
 
 class ADPS(QMainWindow, Ui_MainWindow):
@@ -170,18 +171,21 @@ class ADPS(QMainWindow, Ui_MainWindow):
             self.results_button.setStyleSheet("color: green;")
 
     def goto_result(self):
-        try:
-            progress = QProgressDialog("Making prediction...", "Cancel", 0, 4, self)
-            progress.setWindowModality(Qt.WindowModality.WindowModal)
-            progress.setAutoClose(True)
 
-            self.patient.result = make_prediction(self.patient.data.to_dataframe())
-            progress.setValue(1)
-            analyze(self.patient.data.to_dataframe(), self.patient.result, progress)
-        except Exception as e:
-            self.statusbar.showMessage(f"ERROR: {e}")
-            return
-        
+        progress = QProgressDialog("Making prediction...", None, 0, 5, self)
+        progress.setWindowTitle("Predicting")
+        progress.setWindowModality(Qt.WindowModality.WindowModal)
+        progress.setAutoClose(True)
+        progress.show()
+        QApplication.processEvents()
+        progress.setValue(1)
+        QApplication.processEvents()
+
+        self.patient.result = make_prediction(self.patient.data.to_dataframe())
+        progress.setValue(2)
+        QApplication.processEvents()
+
+        analyze(self.patient.data.to_dataframe(), self.patient.result, progress)
 
         if self.patient.result == 1:
             self.label_diagnosis.setText("Positive for Alzheimer's Disease")

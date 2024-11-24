@@ -1,10 +1,13 @@
 import os
 
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
 import pandas
 import seaborn as sns
 import pandas as pd
-from PySide6.QtWidgets import QProgressDialog
+from PySide6.QtWidgets import QProgressDialog, QApplication
 
 
 def analyze(patient_df, prediction_result, progress: QProgressDialog):
@@ -51,6 +54,5 @@ def analyze(patient_df, prediction_result, progress: QProgressDialog):
         plt.savefig(f'plot_{feature}.png')
         plt.close()
 
-        if progress.wasCanceled():
-            raise Exception("Analysis cancelled")
         progress.setValue(progress.value() + 1)
+        QApplication.processEvents()
