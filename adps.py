@@ -10,7 +10,6 @@ from ui.ui_adps import Ui_MainWindow
 from PySide6.QtWidgets import QApplication, QMainWindow, QProgressDialog, QMessageBox
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
-import threading
 
 
 class ADPS(QMainWindow, Ui_MainWindow):
