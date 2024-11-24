@@ -76,8 +76,8 @@ background-color: rgb(176, 125, 180);
         <widget class="QLabel" name="label">
          <property name="maximumSize">
           <size>
-           <width>200</width>
-           <height>100</height>
+           <width>120</width>
+           <height>60</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -102,6 +102,40 @@ background-color: rgb(176, 125, 180);
         <spacer name="horizontalSpacer_15">
          <property name="orientation">
           <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonBack">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#pushButtonBack {
+	background-color: rgb(156, 105, 160);
+}</string>
+         </property>
+         <property name="text">
+          <string>Back to Login</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_16">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Policy::Preferred</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>

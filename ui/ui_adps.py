@@ -55,7 +55,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.label = QLabel(self.widget)
         self.label.setObjectName(u"label")
-        self.label.setMaximumSize(QSize(200, 100))
+        self.label.setMaximumSize(QSize(120, 60))
         self.label.setStyleSheet(u"#label { background-color: rgb(176, 125, 180);\n"
 " }")
         self.label.setPixmap(QPixmap(u":/icon/ADPS_logo_w.png"))
@@ -67,6 +67,19 @@ class Ui_MainWindow(object):
         self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_5.addItem(self.horizontalSpacer_15)
+
+        self.pushButtonBack = QPushButton(self.widget)
+        self.pushButtonBack.setObjectName(u"pushButtonBack")
+        self.pushButtonBack.setMinimumSize(QSize(100, 30))
+        self.pushButtonBack.setStyleSheet(u"#pushButtonBack {\n"
+"	background-color: rgb(156, 105, 160);\n"
+"}")
+
+        self.horizontalLayout_5.addWidget(self.pushButtonBack)
+
+        self.horizontalSpacer_16 = QSpacerItem(40, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_16)
 
 
         self.verticalLayoutMain.addWidget(self.widget)
@@ -1131,6 +1144,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"ADPS", None))
         self.label.setText("")
+        self.pushButtonBack.setText(QCoreApplication.translate("MainWindow", u"Back to Login", None))
         self.loginPatientID.setInputMask("")
         self.loginPatientID.setText("")
         self.loginPatientID.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Patient ID", None))
