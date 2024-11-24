@@ -16,11 +16,6 @@ class Patient:
     _result : DataFrame, optional
         The result dataframe containing diagnosis prediction (default is None).
     Methods
-    -------
-    result:
-        Property that gets the diagnosis prediction from the result dataframe.
-    result(value: DataFrame):
-        Setter that sets the result dataframe.
     """
 
     def __init__(self, id: Any = None):
