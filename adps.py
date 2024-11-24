@@ -7,7 +7,7 @@ from patient import Patient
 from dataset import EducationLevel, Ethnicity
 from ui.ui_adps import Ui_MainWindow
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QProgressDialog
+from PySide6.QtWidgets import QApplication, QMainWindow, QProgressDialog, QMessageBox
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
 import threading
@@ -26,6 +26,7 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.widgetPatient.setVisible(False)
         self.pushButtonBack.setVisible(False)
         self.pushButtonBack.setEnabled(False)
+        self.labelPatientID.setVisible(False)
 
         self.patient: Patient = None
         self.cognitive_complete: bool = False
@@ -45,6 +46,10 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.results_button.clicked.connect(self.goto_result)
 
     def goto_login(self):
+        reply = QMessageBox.question(self, 'Warning', 'All progress will be lost. Do you want to continue?', 
+                         QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if reply == QMessageBox.No:
+            return
         self.widgetLogin.setEnabled(True)
         self.widgetLogin.setVisible(True)
         self.widgetHomepage.setVisible(False)
@@ -57,9 +62,23 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.widgetPatient.setEnabled(False)
         self.widgetResult.setVisible(False)
         self.widgetResult.setEnabled(False)
+        self.reset()
 
     def reset(self):
-        pass
+        self.pushButtonBack.setVisible(False)
+        self.pushButtonBack.setEnabled(False)
+        self.labelPatientID.setVisible(False)
+        self.cognitive_complete = False
+        self.clinical_complete = False
+        self.patient_complete = False
+        self.cognitive_status.setText("Incomplete")
+        self.cognitive_status.setStyleSheet("color: red;")
+        self.genetic_status.setText("Incomplete")
+        self.genetic_status.setStyleSheet("color: red;")
+        self.patient_status.setText("Incomplete")
+        self.patient_status.setStyleSheet("color: red;")
+        self.loginPatientID.clear()
+        self.statusbar.clearMessage()
 
     def login_submit(self):
         self.patient = Patient(self.loginPatientID.text())
@@ -70,6 +89,8 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.widgetLogin.setEnabled(False)
         self.pushButtonBack.setEnabled(True)
         self.pushButtonBack.setVisible(True)
+        self.labelPatientID.setVisible(True)
+        self.labelPatientID.setText(f"Patient ID: {self.patient.id}")
 
     def goto_cognitive(self):
         self.widgetCognitive.setEnabled(True)
