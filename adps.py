@@ -23,6 +23,8 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.widgetResult.setVisible(False)
         self.widgetHomepage.setVisible(False)
         self.widgetPatient.setVisible(False)
+        self.pushButtonBack.setVisible(False)
+        self.pushButtonBack.setEnabled(False)
 
         self.patient: Patient = None
         self.cognitive_complete: bool = False
@@ -31,6 +33,7 @@ class ADPS(QMainWindow, Ui_MainWindow):
 
 
     def connect_ui(self):
+        self.pushButtonBack.clicked.connect(self.goto_login)
         self.loginSubmit.clicked.connect(self.login_submit)
         self.cognitive_button.clicked.connect(self.goto_cognitive)
         self.submitButtonCognitive.clicked.connect(self.cognitiveSubmit)
@@ -40,6 +43,23 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.submitButtonPatient.clicked.connect(self.patientSubmit)
         self.results_button.clicked.connect(self.goto_result)
 
+    def goto_login(self):
+        self.widgetLogin.setEnabled(True)
+        self.widgetLogin.setVisible(True)
+        self.widgetHomepage.setVisible(False)
+        self.widgetHomepage.setEnabled(False)
+        self.widgetCognitive.setVisible(False)
+        self.widgetCognitive.setEnabled(False)
+        self.widgetClinical.setVisible(False)
+        self.widgetClinical.setEnabled(False)
+        self.widgetPatient.setVisible(False)
+        self.widgetPatient.setEnabled(False)
+        self.widgetResult.setVisible(False)
+        self.widgetResult.setEnabled(False)
+
+    def reset(self):
+        pass
+
     def login_submit(self):
         self.patient = Patient(self.loginPatientID.text())
         self.statusbar.showMessage(f"Logged in as {self.patient.id}")
@@ -47,6 +67,8 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.widgetHomepage.setVisible(True)
         self.widgetLogin.setVisible(False)
         self.widgetLogin.setEnabled(False)
+        self.pushButtonBack.setEnabled(True)
+        self.pushButtonBack.setVisible(True)
 
     def goto_cognitive(self):
         self.widgetCognitive.setEnabled(True)
