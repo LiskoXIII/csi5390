@@ -77,6 +77,8 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.genetic_status.setStyleSheet("color: red;")
         self.patient_status.setText("Incomplete")
         self.patient_status.setStyleSheet("color: red;")
+        self.results_button.setEnabled(False)
+        self.results_button.setStyleSheet("color: red;")
         self.loginPatientID.clear()
         self.statusbar.clearMessage()
 

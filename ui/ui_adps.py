@@ -1171,7 +1171,7 @@ class Ui_MainWindow(object):
         self.GeneticLabel_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">Patient Survey</span></p></body></html>", None))
         self.patient_status.setText(QCoreApplication.translate("MainWindow", u"Incomplete", None))
         self.patient_button.setText(QCoreApplication.translate("MainWindow", u"Go To", None))
-        self.results_button.setText(QCoreApplication.translate("MainWindow", u"Computed Results Page", None))
+        self.results_button.setText(QCoreApplication.translate("MainWindow", u"Compute Resuls", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Cognitive Results", None))
         self.behavioralProblems.setText(QCoreApplication.translate("MainWindow", u"Yes / No", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700; color:#000000;\">Disorientation</span></p></body></html>", None))

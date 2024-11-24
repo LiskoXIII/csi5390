@@ -650,7 +650,7 @@ background-color: rgb(176, 125, 180);
              <string notr="true">color: red;</string>
             </property>
             <property name="text">
-             <string>Computed Results Page</string>
+             <string>Compute Resuls</string>
             </property>
            </widget>
           </item>
