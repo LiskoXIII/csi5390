@@ -13,6 +13,10 @@ from PySide6.QtGui import QPixmap
 
 
 class ADPS(QMainWindow, Ui_MainWindow):
+    """
+    ADPS is a class that represents the main window of the application. It inherits from QMainWindow and Ui_MainWindow.
+    This class handles the user interface and the interaction logic for the application.
+    """
 
     def __init__(self):
         super().__init__()
@@ -32,8 +36,10 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.clinical_complete: bool = False
         self.patient_complete: bool = False
 
-
     def connect_ui(self):
+        """
+        Connects UI elements to their respective event handlers.
+        """
         self.pushButtonBack.clicked.connect(self.goto_login)
         self.loginSubmit.clicked.connect(self.login_submit)
         self.cognitive_button.clicked.connect(self.goto_cognitive)
@@ -45,6 +51,17 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.results_button.clicked.connect(self.goto_result)
 
     def goto_login(self):
+        """
+        Handles the transition to the login screen.
+
+        This method prompts the user with a warning message indicating that all progress will be lost.
+        If the user confirms, it enables and makes the login widget visible while disabling and hiding
+        other widgets such as the homepage, cognitive, clinical, patient, and result widgets. It also
+        calls the reset method to reset the state.
+
+        Returns:
+            None
+        """
         reply = QMessageBox.question(self, 'Warning', 'All progress will be lost. Do you want to continue?', 
                          QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if reply == QMessageBox.No:
@@ -64,6 +81,9 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.reset()
 
     def reset(self):
+        """
+        Resets the state of the user interface to its initial state.
+        """
         self.pushButtonBack.setVisible(False)
         self.pushButtonBack.setEnabled(False)
         self.labelPatientID.setVisible(False)
@@ -82,6 +102,9 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.statusbar.clearMessage()
 
     def login_submit(self):
+        """
+        Handles the login submission process.
+        """
         self.patient = Patient(self.loginPatientID.text())
         self.statusbar.showMessage(f"Logged in as {self.patient.id}")
         self.widgetHomepage.setEnabled(True)
@@ -94,12 +117,34 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.labelPatientID.setText(f"Patient ID: {self.patient.id}")
 
     def goto_cognitive(self):
+        """
+        Activates the cognitive widget and deactivates the homepage widget.
+
+        This method enables and makes visible the cognitive widget while 
+        disabling and hiding the homepage widget.
+        """
         self.widgetCognitive.setEnabled(True)
         self.widgetCognitive.setVisible(True)
         self.widgetHomepage.setVisible(False)
         self.widgetHomepage.setEnabled(False)
 
     def cognitiveSubmit(self):
+        """
+        Submits cognitive data from the UI to the patient's data model.
+
+        This method retrieves values from various UI elements related to cognitive
+        assessment and assigns them to the corresponding attributes in the patient's
+        data model. It also updates the UI to reflect the completion of the cognitive
+        assessment.
+
+        In case of a ValueError, an error message is displayed on the status bar.
+
+        After successfully submitting the data, the method updates the UI to indicate
+        that the cognitive assessment is complete and enables the homepage widget.
+
+        Exceptions:
+            ValueError: If there is an issue with converting UI values to the expected data types.
+        """
         try:
             self.patient.data.mmse = self.mmseCognitive.value()
             self.patient.data.functional_assessment = self.functionalAssesment.value()
@@ -124,12 +169,28 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.data_complete()
 
     def goto_clinical(self):
+        """
+        Switches the view to the clinical widget.
+
+        This method enables and makes visible the clinical widget while disabling
+        and hiding the homepage widget.
+        """
         self.widgetClinical.setEnabled(True)
         self.widgetClinical.setVisible(True)
         self.widgetHomepage.setVisible(False)
         self.widgetHomepage.setEnabled(False)
 
     def clinicalSubmit(self):
+        """
+        Submits the clinical data for the patient and updates the UI accordingly.
+
+        This method collects various clinical data from the UI elements, assigns them to the patient's data attributes,
+        and updates the status bar and UI widgets to reflect the submission status. If any value conversion fails, 
+        an error message is displayed in the status bar.
+
+        Exceptions:
+            - ValueError: If any of the value conversions fail, an error message is displayed in the status bar.
+        """
         try:
             self.patient.data.family_history_alzheimers = int(self.famAlzClinical.isChecked())
             self.patient.data.cardiovascular_disease = int(self.cardiovascularDiseaseClinical.isChecked())
@@ -157,12 +218,27 @@ class ADPS(QMainWindow, Ui_MainWindow):
 
 
     def goto_patient(self): 
+        """
+        Navigates to the patient widget by enabling and making it visible,
+        while disabling and hiding the homepage widget.
+        """
         self.widgetPatient.setEnabled(True)
         self.widgetPatient.setVisible(True)
         self.widgetHomepage.setVisible(False)
         self.widgetHomepage.setEnabled(False)
 
     def patientSubmit(self):
+        """
+        Handles the submission of patient data from the UI form.
+
+        This method retrieves data from various UI elements, assigns them to the 
+        corresponding attributes of the patient data object, and updates the UI 
+        to reflect the submission status. If any value conversion fails, an error 
+        message is displayed in the status bar.
+
+        Exceptions:
+            ValueError: If there is an error in converting any of the input values.
+        """
         try:
             self.patient.data.age = self.agePatient.value()
             self.patient.data.gender = int(self.malePatient.isChecked())
@@ -187,13 +263,21 @@ class ADPS(QMainWindow, Ui_MainWindow):
         self.data_complete()
 
     def data_complete(self):
+        """
+        Checks if all required data (cognitive, clinical, and patient) is complete.
+        If all data is complete, updates the status bar with a message indicating
+        that all data has been submitted, enables the results button, and changes
+        the button's text color to green.
+        """
         if self.cognitive_complete and self.clinical_complete and self.patient_complete:
             self.statusbar.showMessage("All data submitted!")
             self.results_button.setEnabled(True)
             self.results_button.setStyleSheet("color: green;")
 
     def goto_result(self):
-
+        """
+        Handles the process of making a prediction for a patient's data and updating the UI with the results.
+        """
         progress = QProgressDialog("Making prediction...", None, 0, 5, self)
         progress.setWindowTitle("Predicting")
         progress.setWindowModality(Qt.WindowModality.WindowModal)

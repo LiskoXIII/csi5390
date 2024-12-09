@@ -3,27 +3,63 @@ from enum import Enum
 import pandas as pd
 
 class Gender(Enum):
+    """
+    Enum class representing gender.
+
+    Attributes:
+        MALE (int): Represents male gender with a value of 0.
+        FEMALE (int): Represents female gender with a value of 1.
+    """
     MALE = 0
     FEMALE = 1
 
 class Ethnicity(Enum):
+    """
+    Enum class representing different ethnicities.
+
+    Attributes:
+        CAUCASIAN (int): Represents Caucasian ethnicity.
+        AFRICAN_AMERICAN (int): Represents African American ethnicity.
+        ASIAN (int): Represents Asian ethnicity.
+        OTHER (int): Represents other ethnicities not specified.
+    """
     CAUCASIAN = 0
     AFRICAN_AMERICAN = 1
     ASIAN = 2
     OTHER = 3
 
 class EducationLevel(Enum):
+    """
+    Enum class representing different levels of education.
+
+    Attributes:
+        NONE (int): Represents no formal education.
+        HIGH_SCHOOL (int): Represents a high school level education.
+        BACHELORS (int): Represents a bachelor's degree level education.
+        HIGHER (int): Represents education higher than a bachelor's degree.
+    """
     NONE = 0
     HIGH_SCHOOL = 1
     BACHELORS = 2
     HIGHER = 3
 
 class Decision(Enum):
+    """
+    An enumeration representing a binary decision.
+
+    Attributes:
+        NO (int): Represents a negative decision with a value of 0.
+        YES (int): Represents an affirmative decision with a value of 1.
+    """
     NO = 0
     YES = 1
 
 
 class Dataset:
+    """
+    A class to represent a dataset for various health and cognitive parameters.
+    Attributes
+    """
 
     def __init__(self):
         self._age = None
@@ -422,6 +458,43 @@ class Dataset:
             raise ValueError("Forgetfulness must be 0 (No) or 1 (Yes)")
     
     def to_dataframe(self):
+        """
+        Converts the dataset attributes to a pandas DataFrame.
+        Returns:
+            pd.DataFrame: A DataFrame containing the dataset attributes with the following columns:
+                - Age
+                - Gender
+                - Ethnicity
+                - EducationLevel
+                - BMI
+                - Smoking
+                - AlcoholConsumption
+                - PhysicalActivity
+                - DietQuality
+                - SleepQuality
+                - FamilyHistoryAlzheimers
+                - CardiovascularDisease
+                - Diabetes
+                - Depression
+                - HeadInjury
+                - Hypertension
+                - SystolicBP
+                - DiastolicBP
+                - CholesterolTotal
+                - CholesterolLDL
+                - CholesterolHDL
+                - CholesterolTriglycerides
+                - MMSE
+                - FunctionalAssessment
+                - MemoryComplaints
+                - BehavioralProblems
+                - ADL
+                - Confusion
+                - Disorientation
+                - PersonalityChanges
+                - DifficultyCompletingTasks
+                - Forgetfulness
+        """
         data = {
             'Age': [self._age],
             'Gender': [self._gender],

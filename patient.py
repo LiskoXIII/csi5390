@@ -5,6 +5,18 @@ from dataset import Dataset
 from pandas import DataFrame
 
 class Patient:
+    """
+    A class to represent a patient.
+    Attributes
+    ----------
+    id : Any, optional
+        The unique identifier for the patient (default is None).
+    data : Dataset
+        The dataset associated with the patient.
+    _result : DataFrame, optional
+        The result dataframe containing diagnosis prediction (default is None).
+    Methods
+    """
 
     def __init__(self, id: Any = None):
         self.id: Any = id
