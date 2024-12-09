@@ -1,3 +1,16 @@
+"""
+Citation of the dataset:
+
+@misc{rabie_el_kharoua_2024,
+title={Alzheimer's Disease Dataset},
+url={https://www.kaggle.com/dsv/8668279},
+DOI={10.34740/KAGGLE/DSV/8668279},
+publisher={Kaggle},
+author={Rabie El Kharoua},
+year={2024}
+}
+"""
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
