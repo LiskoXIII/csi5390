@@ -100,9 +100,9 @@ def analyze(patient_df: pd.DataFrame, prediction_result: int, progress: QProgres
             plt.tight_layout()
 
             # Save the plot as an image file
-            plt.savefig(f'plot_{feature}.png')
+            plt.savefig(f'prediction/plot_{feature}.png')
             plt.close()
-            print(f"Plot for '{feature}' saved as 'plot_{feature}.png'.")
+            print(f"Plot for '{feature}' saved as 'prediction/plot_{feature}.png'.")
 
             # Update the progress dialog
             progress.setValue(progress.value() + 1)
